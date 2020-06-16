@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "@sublayer/ui",
   "version": "1.0.0",
   "description": "Sublayer UI",
   "main": "lib/index.js",
