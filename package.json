@@ -11,8 +11,8 @@
     "umd"
   ],
   "scripts": {
-    "deploy": "cd demo/dist && surge --project ./ --domain sublayer-ui.surge.sh",
-    "build": "nwb build-react-component && mv demo/dist/index.html demo/dist/200.html",
+    "deploy": "cd demo/dist && npx surge --project ./ --domain sublayer-ui.surge.sh",
+    "build": "nwb build-react-component && ./scripts/post-build.sh",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
