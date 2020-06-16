@@ -14,13 +14,13 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: "12.x"
+    - run: echo "Installing dependencies";
+    - run: yarn install
+    - run: echo "Building...";
+    - run: yarn build
+    - run: echo "Deploying to https://sublayer-io.surge.sh/ ...";
     - name: Deploy to Surge.sh
       env:
         SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
         SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-    - run: echo "Installing dependencies";
-    - run: npm ci
-    - run: echo "Building...";
-    - run: npm build
-    - run: echo "Deploying to https://sublayer-io.surge.sh/ ...";
-    - run: npm run deploy
+      run: yarn deploy
