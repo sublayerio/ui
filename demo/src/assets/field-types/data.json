@@ -1,0 +1,146 @@
+{
+    "example2": [
+        "1",
+        "2"
+    ],
+    "example2Datas": {
+        "1": {
+            "id": "1",
+            "text": "example 1"
+        },
+        "2": {
+            "id": "2",
+            "text": "example 2"
+        }
+    },
+    "example": [
+        "1",
+        "2",
+        "3",
+        "4"
+    ],
+    "exampleDatas": {
+        "1": {
+            "id": "1",
+            "relationship_hasOne": "1",
+            "relationship_hasMany": ["1", "2"],
+            "text": "Lorem ipsum",
+            "singleSelect_expanded": "completed",
+            "text_url": "https://unsplash.com",
+            "text_email": "info@sublayer.io",
+            "text_phone": "+31612345678",
+            "longText": "Lorem ipsum etc",
+            "longText_html": "<h1>It works!</h1><ul><li>iframe srcdoc is underrated</li></ul>",
+            "longText_markdown": "# It works!\n- this is official markdown",
+            "longText_code": "export default name => console.log(`hello ${name}!`);",
+            "json": {
+                "obj": {
+                    "test": 123,
+                    "list": [
+                        1,
+                        2,
+                        3
+                    ]
+                }
+            },
+            "boolean_checkbox": true,
+            "boolean_toggle": false,
+            "number_float": 10.12345,
+            "number_integer": 10,
+            "number_decimal": 10.12345,
+            "number_currency": 10.1235,
+            "number_percentage": 10.12345,
+            "number_progressbar": 75
+        },
+        "2": {
+            "id": "2",
+            "text": "Lorem ipsum",
+            "singleSelect_expanded": "in_progress",
+            "text_url": "https://unsplash.com",
+            "text_email": "info@sublayer.io",
+            "text_phone": "+31612345678",
+            "longText": "Lorem ipsum etc",
+            "longText_html": "<h1>It works!</h1><ul><li>iframe srcdoc is underrated</li></ul>",
+            "longText_markdown": "# It works!\n- this is official markdown",
+            "longText_code": "export default name => console.log(`hello ${name}!`);",
+            "json": {
+                "obj": {
+                    "test": 123,
+                    "list": [
+                        1,
+                        2,
+                        3
+                    ]
+                }
+            },
+            "boolean_checkbox": true,
+            "boolean_toggle": true,
+            "number_float": 10.12345,
+            "number_integer": 10,
+            "number_decimal": 10.12345,
+            "number_currency": 10.1235,
+            "number_percentage": 10.12345,
+            "number_progressbar": 75
+        },
+        "3": {
+            "id": "3",
+            "text": "Lorem ipsum",
+            "singleSelect_expanded": "stuck",
+            "text_url": "https://unsplash.com",
+            "text_email": "info@sublayer.io",
+            "text_phone": "+31612345678",
+            "longText": "Lorem ipsum etc",
+            "longText_html": "<h1>It works!</h1><ul><li>iframe srcdoc is underrated</li></ul>",
+            "longText_markdown": "# It works!\n- this is official markdown",
+            "longText_code": "export default name => console.log(`hello ${name}!`);",
+            "json": {
+                "obj": {
+                    "test": 123,
+                    "list": [
+                        1,
+                        2,
+                        3
+                    ]
+                }
+            },
+            "boolean_checkbox": false,
+            "boolean_toggle": true,
+            "number_float": 10.12345,
+            "number_integer": 10,
+            "number_decimal": 10.12345,
+            "number_currency": 10.1235,
+            "number_percentage": 10.12345,
+            "number_progressbar": 75
+        },
+        "4": {
+            "id": "4",
+            "text": "Lorem ipsum",
+            "singleSelect_expanded": "planned",
+            "text_url": "https://unsplash.com",
+            "text_email": "info@sublayer.io",
+            "text_phone": "+31612345678",
+            "longText": "Lorem ipsum etc",
+            "longText_html": "<h1>It works!</h1><ul><li>iframe srcdoc is underrated</li></ul>",
+            "longText_markdown": "# It works!\n- this is official markdown",
+            "longText_code": "export default name => console.log(`hello ${name}!`);",
+            "json": {
+                "obj": {
+                    "test": 123,
+                    "list": [
+                        1,
+                        2,
+                        3
+                    ]
+                }
+            },
+            "boolean_checkbox": false,
+            "boolean_toggle": true,
+            "number_float": 10.12345,
+            "number_integer": 10,
+            "number_decimal": 10.12345,
+            "number_currency": 10.1235,
+            "number_percentage": 10.12345,
+            "number_progressbar": 75
+        }
+    }
+}

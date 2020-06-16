@@ -1,7 +1,7 @@
 {
   "name": "ui",
   "version": "1.0.0",
-  "description": "ui React component",
+  "description": "Sublayer UI",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -11,7 +11,8 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "deploy": "cd demo/dist && surge --project ./ --domain sublayer-ui.surge.sh",
+    "build": "nwb build-react-component && mv demo/dist/index.html demo/dist/200.html",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
@@ -19,7 +20,33 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@cmds/button": "^0.4.0",
+    "@cmds/switch": "^0.2.0",
+    "@pndr/date-input": "^0.6.0",
+    "@pndr/demo-utils": "^0.3.0",
+    "@pndr/icons": "^0.7.0",
+    "@pndr/number-input": "^0.7.0",
+    "@pndr/text-input": "^0.6.0",
+    "@popperjs/core": "^2.4.2",
+    "array-move": "^2.2.2",
+    "axios": "^0.19.2",
+    "dom-helpers": "^5.1.4",
+    "emotion": "^10.0.27",
+    "immutable": "^4.0.0-rc.12",
+    "js-search": "^2.0.0",
+    "numeral": "^2.0.6",
+    "papaparse": "^5.2.0",
+    "react-click-outside": "^3.0.1",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-draggable": "^4.4.3",
+    "react-json-view": "^1.19.1",
+    "react-popper": "^2.2.3",
+    "react-router-dom": "^5.2.0",
+    "react-sortable-hoc": "^1.11.0",
+    "react-syntax-highlighter": "^12.2.1",
+    "react-virtualized": "^9.21.2"
+  },
   "peerDependencies": {
     "react": "16.x"
   },

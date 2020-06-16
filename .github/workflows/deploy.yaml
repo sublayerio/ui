@@ -1,0 +1,26 @@
+name: Deploy Demo
+
+on:
+  release:
+    types:
+      - created
+      
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - name: Deploy to Surge.sh
+      env:
+        SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+    - run: echo "Installing dependencies";
+    - run: npm ci
+    - run: echo "Building...";
+    - run: npm build
+    - run: echo "Deploying to https://sublayer-io.surge.sh/ ...";
+    - run: npm run deploy

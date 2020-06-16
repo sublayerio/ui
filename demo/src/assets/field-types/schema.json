@@ -1,0 +1,183 @@
+{
+    "model": [
+        "example",
+        "example2"
+    ],
+    "modelDatas": {
+        "example2": {
+            "id": "example2",
+            "plural": "Examples 2",
+            "primaryField": "text",
+            "fields": [
+                {
+                    "id": "id",
+                    "type": "id"
+                },
+                {
+                    "id": "text",
+                    "type": "text"
+                }
+            ]
+        },
+        "example": {
+            "id": "example",
+            "plural": "Examples",
+            "fields": [
+                {
+                    "id": "id",
+                    "type": "id"
+                },
+                {
+                    "id": "relationship_hasOne",
+                    "type": "relationship",
+                    "settings": {
+                        "type": "hasOne",
+                        "foreignModel": "example2"
+                    }
+                },
+                {
+                    "id": "relationship_hasMany",
+                    "type": "relationship",
+                    "settings": {
+                        "type": "hasMany",
+                        "foreignModel": "example2"
+                    }
+                },
+                {
+                    "id": "singleSelect_expanded",
+                    "type": "singleSelect",
+                    "settings": {
+                        "expanded": true,
+                        "options": [
+                            {
+                                "id": "completed",
+                                "name": "Voltooid",
+                                "backgroundColor": "rgb(0, 200, 117)",
+                                "color": "#fff"
+                            },
+                            {
+                                "id": "in_progress",
+                                "name": "Mee bezig",
+                                "backgroundColor": "rgb(253, 171, 61)",
+                                "color": "#fff"
+                            },
+                            {
+                                "id": "stuck",
+                                "name": "Lukt niet",
+                                "backgroundColor": "rgb(226, 68, 92)",
+                                "color": "#fff"
+                            },
+                            {
+                                "id": "planned",
+                                "name": "Ingepland",
+                                "backgroundColor": "rgb(196, 196, 196)",
+                                "color": "#fff"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "json",
+                    "type": "json"
+                },
+                {
+                    "id": "text",
+                    "type": "text"
+                },
+                {
+                    "id": "text_url",
+                    "type": "text",
+                    "displayType": "url"
+                },
+                {
+                    "id": "text_email",
+                    "type": "text",
+                    "displayType": "email"
+                },
+                {
+                    "id": "text_phone",
+                    "type": "text",
+                    "displayType": "phone"
+                },
+                {
+                    "id": "longText",
+                    "type": "longText"
+                },
+                {
+                    "id": "longText_html",
+                    "type": "longText",
+                    "displayType": "html"
+                },
+                {
+                    "id": "longText_markdown",
+                    "type": "longText",
+                    "displayType": "markdown"
+                },
+                {
+                    "id": "longText_code",
+                    "type": "longText",
+                    "displayType": "code"
+                },
+                {
+                    "id": "boolean_checkbox",
+                    "type": "boolean",
+                    "settings": {
+                        "trueLabel": "On",
+                        "falseLabel": "Off"
+                    }
+                },
+                {
+                    "id": "boolean_toggle",
+                    "type": "boolean",
+                    "settings": {
+                        "ui": "toggle"
+                    }
+                },
+                {
+                    "id": "number_float",
+                    "type": "number",
+                    "settings": {
+                        "format": "float"
+                    }
+                },
+                {
+                    "id": "number_integer",
+                    "type": "number",
+                    "settings": {
+                        "format": "integer"
+                    }
+                },
+                {
+                    "id": "number_decimal",
+                    "type": "number",
+                    "settings": {
+                        "format": "decimal",
+                        "precision": 2
+                    }
+                },
+                {
+                    "id": "number_currency",
+                    "type": "number",
+                    "settings": {
+                        "format": "decimal",
+                        "precision": 2,
+                        "ui": "currency"
+                    }
+                },
+                {
+                    "id": "number_percentage",
+                    "type": "number",
+                    "settings": {
+                        "format": "integer",
+                        "ui": "percentage"
+                    }
+                },
+                {
+                    "id": "number_progressbar",
+                    "type": "number",
+                    "displayType": "progressBar"
+                }
+            ]
+        }
+    }
+}
