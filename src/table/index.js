@@ -3,7 +3,6 @@ import { fromJS } from 'immutable'
 import { cx, css } from 'emotion'
 import debounce from 'lodash/debounce'
 import SearchInput from '../search-input'
-import Button from '../button'
 import fieldRenderer from './fieldRenderer'
 import defaultEmptyRenderer from './defaultEmptyRenderer';
 import GridView from './GridView'

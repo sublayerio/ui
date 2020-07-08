@@ -1,7 +1,6 @@
 import React from 'react';
 import { cx } from 'emotion'
 import { AutoSizer, ScrollSync, Grid } from 'react-virtualized'
-import './GridView.css';
 import scrollbarSize from 'dom-helpers/scrollbarSize';
 
 export default class GridExample extends React.PureComponent {
