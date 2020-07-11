@@ -288,7 +288,7 @@ export default (props) => {
 
     const { modelId } = props
 
-    const model = props.schema.modelDatas[modelId]
+    const model = props.schema.ModelDatas[modelId]
     const fields = model.fields
 
     const rows = props.data[modelId].map(id =>

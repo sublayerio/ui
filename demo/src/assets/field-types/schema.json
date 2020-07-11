@@ -1,9 +1,9 @@
 {
-    "model": [
+    "Model": [
         "example",
         "example2"
     ],
-    "modelDatas": {
+    "ModelDatas": {
         "example2": {
             "id": "example2",
             "plural": "Examples 2",

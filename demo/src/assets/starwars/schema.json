@@ -1,10 +1,10 @@
 {
-  "model": [
+  "Model": [
     "film",
     "planet",
     "people"
   ],
-  "modelDatas": {
+  "ModelDatas": {
     "film": {
       "id": "film",
       "plural": "Films",

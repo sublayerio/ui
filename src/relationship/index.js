@@ -26,7 +26,7 @@ const Badge = ({ children }) => (
 
 export const renderer = ({ field, value, data, schema }) => {
 
-    // const foreignModel = schema.modelDatas[field.settings.foreignModel]
+    // const foreignModel = schema.ModelDatas[field.settings.foreignModel]
 
     const type = get(field, 'settings.type')
     const foreignModelId = get(field, 'settings.foreignModel')
@@ -46,7 +46,7 @@ export const renderer = ({ field, value, data, schema }) => {
             {refs.map(ref => {
 
                 const record = data[foreignModelId + 'Datas'][ref]
-                const foreignModel = schema.modelDatas[foreignModelId]
+                const foreignModel = schema.ModelDatas[foreignModelId]
                 const value = record[foreignModel.primaryField || 'id']
 
                 return <Badge key={ref}>{value}</Badge>
@@ -73,7 +73,7 @@ export const textFormatter = ({ field, value, data, schema }) => {
     return refs.map(ref => {
 
         const record = data[foreignModelId + 'Datas'][ref]
-        const foreignModel = schema.modelDatas[foreignModelId]
+        const foreignModel = schema.ModelDatas[foreignModelId]
         return record[foreignModel.primaryField || 'id']
     }).join(', ')
 }
