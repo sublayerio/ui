@@ -54,8 +54,6 @@ const layoutComponents = {
   HasMany
 };
 
-const getComponent = component => layoutComponents[component.type];
-
 const defaultComponentRenderer = props => (
   <div>
     <h2>{props.type}</h2>
@@ -64,15 +62,14 @@ const defaultComponentRenderer = props => (
 );
 
 const renderComponent = ({ key, ctx, type }) => {
-  const component = ctx.components[type];
+  const ComponentDatas = ctx.schema.ComponentDatas || {}
+  const component = ComponentDatas[type];
 
   let Component = defaultComponentRenderer;
 
   if (component) {
-    Component = getComponent(component);
+    Component = ctx.components[component.type] || layoutComponents[component.type];
   }
-
-  console.log("Component", Component);
 
   return (
     <div
@@ -116,7 +113,7 @@ const Tabs = props => {
 
 const renderLayoutChild = ctx => (child, key) => {
   const type = child.type;
-  const Component = layoutComponents[type];
+  const Component = ctx.components[type] || layoutComponents[type];
 
   if (!Component) {
     return renderComponent({ key, ctx, type });

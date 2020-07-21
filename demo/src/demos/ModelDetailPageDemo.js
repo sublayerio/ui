@@ -90,8 +90,19 @@ const Example1 = () => {
                                 type: "HasMany",
                                 name: "Films",
                                 foreignModel: "film"
+                            },
+                            {
+                                type: 'CustomComponent'
                             }
                         ]
+                    }}
+                    components={{
+                        CustomComponent: () => (
+                            <div>
+                                <h2>Custom Component</h2>
+                                this is a custom component, you can provide this component with custom components to be rendered
+                            </div>
+                        )
                     }}
                     modelId={'people'}
                     recordId={'http://swapi.dev/api/people/1/'}
