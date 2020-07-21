@@ -3,6 +3,10 @@ import renderLayout from './renderLayout'
 
 export default class ModelDetailPage extends React.Component {
 
+    static defaultProps = {
+        components: {}
+    }
+
     render() {
 
         const { layout } = this.props.modelDetailPage

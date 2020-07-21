@@ -49,8 +49,8 @@ export const Tab = ({ index, active, onClick, children }) => (
         `,
         active
           ? css`
-              border-color: #07f;
-              color: #07f;
+              border-color: rgb(var(--primaryColor));
+              color: rgb(var(--primaryColor));
               position: relative;
             `
           : null
