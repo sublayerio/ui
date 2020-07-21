@@ -32,6 +32,9 @@ numeral.register('locale', 'nl', {
 // switch between locales
 numeral.locale('nl');
 
+window._env_ = window._env_ || {}
+window._env_.REACT_APP_BRAND_IMAGE_URL = 'https://avatars2.githubusercontent.com/u/66509471?s=200&v=4'
+
 ReactDOM.render(<App />, document.getElementById('demo'));
 
 // If you want your app to work offline and load faster, you can change

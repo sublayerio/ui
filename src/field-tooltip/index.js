@@ -43,8 +43,9 @@ const Tooltip = props => (
     <div
         className={css`
         background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 11px;
-        border-radius: 3px;
+        box-shadow: 0 8px 24px rgba(149, 157, 165, .2);
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
         width: 500px;
         overflow: hidden;
         `}

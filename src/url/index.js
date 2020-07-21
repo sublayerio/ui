@@ -10,7 +10,7 @@ const CopyLink = ({ value }) => {
 
     const [copied, setCopied] = useState(false)
 
-    const handleCopy = () => {
+    const handleCopy = (e) => {
         setCopied(true)
         setTimeout(() =>
             setCopied(false),
@@ -19,9 +19,11 @@ const CopyLink = ({ value }) => {
     }
 
     return (
-        <CopyToClipboard text={value} onCopy={handleCopy}>
-            {copied ? <span className={css`font-size: 12px; padding: 2px 4px; background: rgba(185, 244, 188, 0.2); color: rgb(27, 185, 120); border-radius: 3px; user-select: none;`}>Copied!</span> : copy({ width: 12, className: css`cursor: pointer; &:hover {opactiy: 0.5;}` })}
-        </CopyToClipboard>
+        <div onClick={e => e.stopPropagation()}>
+            <CopyToClipboard text={value} onCopy={handleCopy}>
+                {copied ? <span className={css`font-size: 12px; padding: 2px 4px; background: rgba(185, 244, 188, 0.2); color: rgb(27, 185, 120); border-radius: 3px; user-select: none;`}>Copied!</span> : copy({ width: 12, className: css`cursor: pointer; &:hover {opactiy: 0.5;}` })}
+            </CopyToClipboard>
+        </div>
     )
 }
 export const renderer = ({ value }) => {
