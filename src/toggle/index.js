@@ -31,7 +31,7 @@ export default class Toggle extends React.Component {
             <div
                 className={cx(
                     css`
-                    background-color: ${active ? '#07f' : '#000'};
+                    background-color: ${active ? 'rgb(var(--primaryColor))' : '#808080'};
                     display: flex;
                     flex: none;
                     border-radius: 99999px;

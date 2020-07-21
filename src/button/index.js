@@ -27,17 +27,17 @@ class Button extends React.Component {
             },
             primary: {
                 default: `
-                    background-color: rgb(0, 34, 253);
-                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+                    background-color: rgb(var(--primaryColor));
+                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(var(--primaryColor)) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
                     color: rgb(255, 255, 255);
                     `,
                 focus: `
-                    background-color: rgb(0, 34, 253);
-                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(58, 151, 212, 0.28) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+                    background-color: rgb(var(--primaryColor));
+                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(var(--primaryColor)) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(58, 151, 212, 0.28) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
                 `,
                 hover: `
-                    background-color: rgb(0, 34, 253);
-                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+                    background-color: rgb(var(--primaryColor));
+                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(var(--primaryColor)) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
                     color: rgb(255, 255, 255);
                     `,
                 disabled: `
@@ -65,17 +65,17 @@ class Button extends React.Component {
             highlighted: {
                 default: `
                     background-color: rgb(255, 255, 255);
-                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-                    color: rgb(0, 34, 253);
+                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(var(--primaryColor)) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+                    color: rgb(var(--primaryColor));
                     `,
                 focus: `
                 background-color: rgb(255, 255, 255);
-                box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(58, 151, 212, 0.28) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+                box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(var(--primaryColor)) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(58, 151, 212, 0.28) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
                 `,
                 hover: `
                     background-color: rgb(255, 255, 255);
-                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-                    color: rgb(0, 34, 253);
+                    box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(var(--primaryColor)) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+                    color: rgb(var(--primaryColor));
                     `,
                 disabled: `
                         opacity: 0.7;
@@ -95,8 +95,8 @@ class Button extends React.Component {
                         background-color: rgba(55, 53, 47, 0.08);
                     `,
                     focus: `
-                    background-color: rgba(55, 53, 47, 0.08);
-                    box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
+                    background-color: rgba(var(--primaryColor), 0.08);
+                    box-shadow: rgba(var(--primaryColor), 0.28) 0px 0px 0px 4px;
                 `,
                     disabled: `
                         opacity: 0.7;
@@ -106,16 +106,16 @@ class Button extends React.Component {
                     default: `
                     background-color: rgb(255, 255, 255);
                     transition: background-color 120ms ease-in 0s;
-                    color: rgb(0, 34, 253);
+                    color: rgb(var(--primaryColor));
                         `,
                     hover: `
-                    background-color: rgba(0, 34, 253, 0.08);
-                    color: rgb(0, 34, 253);
+                    background-color: rgba(var(--primaryColor), 0.08);
+                    color: rgb(var(--primaryColor));
                         `,
                     focus: `
-                        background-color: rgba(0, 34, 253, 0.08);
-                        color: rgb(0, 34, 253);
-                        box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
+                        background-color: rgba(var(--primaryColor), 0.08);
+                        color: rgb(var(--primaryColor));
+                        box-shadow: rgba(var(--primaryColor), 0.28) 0px 0px 0px 4px;
                         `,
                     disabled: `
                             opacity: 0.7;
@@ -143,17 +143,17 @@ class Button extends React.Component {
                 },
                 highlighted: {
                     default: `
-                    background-color: rgba(0, 34, 253, 0.08);
+                    background-color: rgba(var(--primaryColor), 0.08);
                     transition: background-color 120ms ease-in 0s;
-                    color: rgb(0, 34, 253);
+                    color: rgb(var(--primaryColor));
                         `,
                     hover: `
-                        background-color: rgba(0, 34, 253, 0.08);
-                        color: rgb(0, 34, 253);
+                        background-color: rgba(var(--primaryColor), 0.08);
+                        color: rgb(var(--primaryColor));
                             `,
                     focus: `
-                            background-color: rgba(0, 34, 253, 0.08);
-                            color: rgb(0, 34, 253);
+                            background-color: rgba(var(--primaryColor), 0.08);
+                            color: rgb(var(--primaryColor));
                             box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
                             `,
                     disabled: `
@@ -183,18 +183,21 @@ class Button extends React.Component {
                 fontSize: 14,
                 padding: '0 10px',
                 iconOffset: 4,
+                fontWeight: 600
             },
             md: {
                 height: 38,
                 fontSize: 16,
                 padding: '0 12px',
                 iconOffset: 4,
+                fontWeight: 500
             },
             lg: {
                 height: 42,
                 fontSize: 18,
                 padding: '0 16px',
                 iconOffset: 6,
+                fontWeight: 500
             }
         }
 
@@ -221,7 +224,7 @@ class Button extends React.Component {
                     margin: 0;
                     white-space: nowrap;
                     font-size: ${sizeStyle.fontSize}px;
-                    font-weight: 500;
+                    font-weight: ${sizeStyle.fontWeight};
                     user-select: none;
                     height: ${sizeStyle.height}px;
                     line-height: ${sizeStyle.height}px;
@@ -255,7 +258,7 @@ class Button extends React.Component {
                 onClick={onClick}
             >
                 {icon ? icon({
-                    height: 16,
+                    height: sizeStyle.fontSize,
                     className: children ? css`
                             margin-right: ${sizeStyle.iconOffset}px;
                         ` : null

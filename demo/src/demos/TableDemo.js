@@ -9,6 +9,8 @@ import Table from '../../../src/table'
 
 const noop = () => { }
 
+const onRecordClick = params => alert('onRecordClick: ' + JSON.stringify(params))
+
 const Example1 = () => {
 
     const [model, setModel] = useState('example')
@@ -57,7 +59,7 @@ const Example1 = () => {
                     schema={example_schema}
                     data={example_data}
                     onPageRefresh={noop}
-                    onRecordClick={noop}
+                    onRecordClick={onRecordClick}
                 />
             </div>
         </div>
@@ -114,7 +116,7 @@ const Example2 = () => {
                     schema={starwars_schema}
                     data={starwars_data}
                     onPageRefresh={noop}
-                    onRecordClick={noop}
+                    onRecordClick={onRecordClick}
                 />
             </div>
         </div>

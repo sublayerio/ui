@@ -61,12 +61,12 @@ export default class ViewButton extends React.Component {
                                 transition: background 120ms ease-in 0s;
                                 height: 30px;
                                 &:hover {
-                                    background: rgba(55, 53, 47, 0.08);
+                                    background-color: rgba(55, 53, 47, 0.08);
                                 }
                             `,
                                         this.state.open ? css`
-                                                    background: rgba(55, 53, 47, 0.08);
-                                                    ` : null
+                                        background-color: rgba(55, 53, 47, 0.08);
+                                        ` : null
                                     )}
                                     onClick={this.handleClick}
                                     onDoubleClick={this.handleDoubleClick}

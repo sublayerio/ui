@@ -10,6 +10,15 @@ import SegmentedControl from '../segmented-control'
 import translate from '../translate'
 import alert from '../alert'
 
+const sortAlt = props => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <g>
+            <path fill="currentColor" d="M379.29 132.69l-80-96a16 16 0 0 0-22.62 0l-80 96C186.65 142.74 193.78 160 208 160h48v304a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V160h48c14.19 0 21.36-17.24 11.29-27.31z" fillOpacity="0.6"></path>
+            <path fill="currentColor" d="M176 352h-48V48a16 16 0 0 0-16-16H80a16 16 0 0 0-16 16v304H16c-14.19 0-21.36 17.24-11.29 27.31l80 96a16 16 0 0 0 22.62 0l80-96C197.35 369.26 190.22 352 176 352z"></path>
+        </g>
+    </svg>
+)
+
 const trash = props => (
     <svg {...props} viewBox="0 0 30 30" fill="currentColor"><path d="M21,5c0-2.2-1.8-4-4-4h-4c-2.2,0-4,1.8-4,4H2v2h2v22h22V7h2V5H21z M13,3h4c1.104,0,2,0.897,2,2h-8C11,3.897,11.897,3,13,3zM24,27H6V7h18V27z M16,11h-2v12h2V11z M20,11h-2v12h2V11z M12,11h-2v12h2V11z"></path></svg>
 )
@@ -258,6 +267,7 @@ class ViewSorterSettings extends React.Component {
                     size={'sm'}
                     onClick={() => this.setState({ open: true })}
                     minimal
+                    icon={sortAlt}
                     highlighted={sorterCount}
                 >
                     {sorterCount ? translate('${sorterCount} sorter<% if (sorterCount > 1) { %>s<% } %>', { bindings: { sorterCount } }) : translate('Sort') /* eslint-disable-line no-template-curly-in-string */}

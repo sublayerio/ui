@@ -22,7 +22,7 @@ class Field extends React.Component {
                         user-select: none;
                         transition: 200ms ease background-color;
                         &:hover {
-                            background-color: #e6f1ff;
+                            background-color: rgba(var(--primaryColor), 0.1);
                         }
                         &:active {
                             background-color: #e6f1ff;

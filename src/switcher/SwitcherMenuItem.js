@@ -14,11 +14,11 @@ const SwitcherMenuItem = ({ children, active, onClick }) => (
             opacity: 0.75;
         }
         &:hover {
-            background-color: #e6f1ff;
+            background-color: rgba(var(--primaryColor), 0.1);
         }
             `,
             active ? css`
-                background-color: #0022fd;
+                background-color: rgb(var(--primaryColor));
         color: #fff;
         &:hover {
             background-color: #005fcc;

@@ -22,7 +22,7 @@ const SwitcherItem = ({ name, draggable, active, icon, onClick }) => (
             opacity: 0.75;
         }
         &:hover {
-            background-color: #e6f1ff;
+            background-color: rgba(var(--primaryColor), 0.1);
         }
             `
         )}

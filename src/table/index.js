@@ -402,7 +402,7 @@ export default (props) => {
                    align-items: center;
                    background-color: #fff;
                    border-bottom: 1px solid #f2f2f2;
-                   padding: 0 8px;
+                   padding: 0 24px;
                `}
             >
                 <div
