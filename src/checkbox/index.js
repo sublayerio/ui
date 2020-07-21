@@ -32,8 +32,8 @@ const Checkbox = ({ value, onChange, trueLabel, falseLabel }) => {
             cursor: pointer;
             `,
                     value ? css`
-            background: #07f;
-            border-color: #05f;
+            background: rgb(var(--primaryColor));
+            border-color: rgb(var(--primaryColorDarker));
             ` : null
                 )}
                 onClick={e => {

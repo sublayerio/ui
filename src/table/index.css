@@ -85,7 +85,7 @@
 }
 
 .cell.hover {
-    background:#f7fbff;
+    background: rgba(var(--primaryColor), 0.04);
 }
 
 .cell.active {

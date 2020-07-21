@@ -158,7 +158,7 @@ class Table extends React.Component {
                         border-radius: 50%;
                             width: 20px;   
                             height: 20px;   
-                            color: #2750ae;
+                            color: rgb(var(--primaryColor));
                             position: absolute;
                             background-color: transparent;
                             top: 15px;
@@ -169,7 +169,7 @@ class Table extends React.Component {
                             opacity: ${hover ? '1' : '0'};
                             transition: 200ms ease opacity, 200ms ease background;
                             &:hover {
-                                background-color: #d0f0fd;
+                                background-color: rgba(var(--primaryColor), 0.08);
                             }
                         `}
                     >
