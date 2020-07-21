@@ -70,7 +70,7 @@ export default class MenuItem extends React.Component {
                     )}
                 >
                     {icon({
-                        width: 16,
+                        height: 16,
                         className: css`
                             display: flex;
                             margin-right: 12px;
