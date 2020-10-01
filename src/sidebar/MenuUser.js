@@ -1,11 +1,11 @@
 import React from 'react'
-import {css} from 'emotion'
+import { css } from 'emotion'
 
 export default class MenuUser extends React.Component {
 
     render() {
 
-        const {theme} = this.props
+        const { theme } = this.props
 
         return (
             <div
@@ -60,8 +60,9 @@ export default class MenuUser extends React.Component {
                                     position: relative;
                                 `}
                         >
-                            <div
-                                className={css`
+                            {this.props.imageRenderer ? this.props.imageRenderer({ imageUrl: this.props.imageUrl }) : (
+                                <div
+                                    className={css`
                                         position: absolute;
                                         top: 0;
                                         bottom: 0;
@@ -72,9 +73,8 @@ export default class MenuUser extends React.Component {
                                         background-position: center center;
                                         background-repeat: no-repeat;
                                     `}
-                            >
-
-                            </div>
+                                />
+                            )}
                         </div>
                         <div
                             className={css`
