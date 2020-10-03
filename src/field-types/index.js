@@ -2,6 +2,11 @@ import { fromJS } from 'immutable'
 
 const state = fromJS({
     "fieldTypeDatas": {
+        "button": {
+            "id": "button",
+            "name_nl": "Knop",
+            "name": "Button"
+        },
         "attachment": {
             "id": "attachment",
             "name_nl": "Bestanden & Media",
@@ -214,6 +219,7 @@ const state = fromJS({
         }
     },
     "fieldType": [
+        "button",
         "attachment",
         "checkbox",
         "date",

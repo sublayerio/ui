@@ -92,7 +92,6 @@ export default class FieldTooltip extends React.Component {
                                 background-color: #fff;
                             `}
                                         >
-                                            <div className={css`font-weight: bold; font-size: 16px; margin-bottom: 4px;`}>{field.name}</div>
                                             <div>
                                                 <FieldTechnical field={field} />
                                             </div>

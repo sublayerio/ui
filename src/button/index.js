@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { css, cx } from 'emotion'
-
+import spinner from '../spinner'
 class Button extends React.Component {
 
     render() {
@@ -257,12 +257,23 @@ class Button extends React.Component {
                 )}
                 onClick={onClick}
             >
-                {icon ? icon({
-                    height: sizeStyle.fontSize,
-                    className: children ? css`
-                            margin-right: ${sizeStyle.iconOffset}px;
-                        ` : null
-                }) : null}
+                {icon ? (
+                    <div
+                        className={cx(
+                            css`
+                                display: flex;
+                                align-items: center;
+                            `,
+                            children ? css`
+                        margin-right: ${sizeStyle.iconOffset}px;
+                    ` : null
+                        )}
+                    >
+                        {icon({
+                            height: sizeStyle.fontSize
+                        })}
+                    </div>
+                ) : null}
                 {children}
             </button>
         )
@@ -270,3 +281,53 @@ class Button extends React.Component {
 }
 
 export default Button
+
+const Component = ({ field, hooks, modelId, fieldId }) => {
+
+    const { settings = {} } = field
+
+    const { label: defaultLabel = 'Click here', variant = 'default' } = settings
+
+    const variantProps = {}
+
+    variantProps[variant] = true
+
+    const [loading, setLoading] = useState(false)
+    const [label, setLabel] = useState(defaultLabel)
+
+    const handleClick = async e => {
+
+        e.stopPropagation()
+
+        const hookId = `button.click/${modelId}.${fieldId}`
+
+        console.log('hooks', hooks)
+        console.log('hookId', hookId)
+
+        const hook = hooks[hookId]
+
+        if (!hook) {
+            return
+        }
+
+        console.log('exec hook')
+
+        await hook(e, { loading, setLoading, label, setLabel })
+    }
+
+    return (
+        <div>
+            <Button
+                size="sm"
+                type="button"
+                icon={loading ? spinner : null}
+                onClick={handleClick}
+                {...variantProps}
+            >
+                {label}
+            </Button>
+        </div>
+    )
+}
+
+export const renderer = props => <Component {...props} />

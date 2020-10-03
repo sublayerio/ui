@@ -1,8 +1,13 @@
 import React from 'react'
 import get from 'lodash/get'
 import moment from 'moment/moment'
+import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 
 export const renderer = ({ field, value }) => {
+
+    if (!value) {
+        return defaultEmptyRenderer()
+    }
 
     const includeTime = get(field, 'settings.includeTime', false)
 

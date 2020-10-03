@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  ui:
+    image: node:10
+    stdin_open: true
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    command: ./entrypoint.sh
+
+  proxy:
+    build: ./proxy
+    ports:
+      - 80:80
+    restart: always

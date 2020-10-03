@@ -28,7 +28,18 @@
                     "type": "id"
                 },
                 {
+                    "id": "button",
+                    "name": "Button",
+                    "type": "button",
+                    "settings": {
+                        "label": "Dangerous action",
+                        "variant": "danger"
+                    }
+                },
+                {
                     "id": "relationship_hasOne",
+                    "name": "Relationship",
+                    "description": "Has one type relationship",
                     "type": "relationship",
                     "settings": {
                         "type": "hasOne",

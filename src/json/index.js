@@ -4,13 +4,43 @@ import { Manager, Reference, Popper } from 'react-popper';
 import ReactJson from 'react-json-view'
 import Portal from '../portal'
 import Tooltip from '../tooltip'
+import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 
-const Component = ({ value }) => {
+const Component = ({ value, context }) => {
+
+    if (!value) {
+        return defaultEmptyRenderer()
+    }
 
     const [hover, setHover] = useState(false)
 
     const handleMouseEnter = () => setHover(true)
     const handleMouseLeave = () => setHover(false)
+
+    const value_string = JSON.stringify(value)
+    const collapsed = value_string.length > 100000 ? 1 : false // larger than ~100kb? collapse on first level
+
+    if (context === 'detail') {
+
+        return (
+            <div
+                className={css`
+                    padding: 16px;
+                    border: 1px solid #f2f2f2;
+                    border-radius: 6px;
+                    width: 100%;
+                    max-height: 400px;
+                    overflow: hidden auto;
+                    font-size: 12px;
+                `}
+            >
+                <ReactJson
+                    src={value}
+                    collapsed={collapsed}
+                />
+            </div>
+        )
+    }
 
     return (
         <Manager>
@@ -52,7 +82,7 @@ const Component = ({ value }) => {
                                         overflow: auto;
                                     `}
                                     >
-                                        <ReactJson src={value} />
+                                        <ReactJson src={value} collapsed={collapsed} />
                                     </div>
                                 </Tooltip>
                             </div>
@@ -63,4 +93,4 @@ const Component = ({ value }) => {
         </Manager>
     )
 }
-export const renderer = ({ value }) => <Component value={value} />
+export const renderer = props => <Component {...props} />

@@ -38,6 +38,10 @@ export default class DetailTable extends React.Component {
                 value,
                 record,
                 field,
+                modelId,
+                fieldId: field.id,
+                context: 'detail',
+                hooks: this.props.hooks,
                 schema: this.props.schema,
                 data: this.props.data,
                 onPageRefresh: this.props.onPageRefresh

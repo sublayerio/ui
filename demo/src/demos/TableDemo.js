@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { css } from 'emotion'
 import example_schema from '../assets/field-types/schema.json'
 import example_data from '../assets/field-types/data.json'
+import example_hooks from '../assets/field-types/hooks'
 import starwars_schema from '../assets/starwars/schema.json'
 import starwars_data from '../assets/starwars/data.json'
 
@@ -58,6 +59,7 @@ const Example1 = () => {
                     modelId={model}
                     schema={example_schema}
                     data={example_data}
+                    hooks={example_hooks}
                     onPageRefresh={noop}
                     onRecordClick={onRecordClick}
                 />

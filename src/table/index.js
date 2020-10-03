@@ -205,7 +205,17 @@ class Table extends React.Component {
 
         const value = record[field.id]
 
-        const content = value === null ? defaultEmptyRenderer() : fieldRenderer({ value, record, field, schema: this.props.schema, data: this.props.data })
+        const content = value === null ? defaultEmptyRenderer() : fieldRenderer({
+            value,
+            record,
+            field,
+            modelId: this.props.modelId,
+            fieldId: field.id,
+            hooks: this.props.hooks,
+            schema: this.props.schema,
+            data: this.props.data,
+            context: 'cell'
+        })
 
         const hover = rowIndex === this.cursor.rowIndex
 
@@ -421,7 +431,7 @@ export default (props) => {
                     margin-left: 8px;
                     `}
                 >
-                   <span className={css`color: #808080; font-size: 12px;`}> {tableRows.length} records</span>
+                    <span className={css`color: #808080; font-size: 12px;`}> {tableRows.length} records</span>
                 </div>
                 <div
                     className={css`

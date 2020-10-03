@@ -20,6 +20,7 @@ export default class ModelDetailPage extends React.Component {
                 {renderLayout({
                     record,
                     components: this.props.components,
+                    hooks: this.props.hooks,
                     schema: this.props.schema,
                     data: this.props.data,
                     modelId: this.props.modelId,
