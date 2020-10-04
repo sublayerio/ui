@@ -100,6 +100,12 @@ export default class GridExample extends React.PureComponent {
                                             rowHeight={rowHeight}
                                             rowCount={rowCount}
                                             scrollTop={scrollTop}
+                                            onScroll={params => {
+
+                                                params.scrollLeft = scrollLeft
+
+                                                onScroll(params)
+                                            }}
                                         />
                                     </div>
                                     <div className={'GridColumn'}>
@@ -135,6 +141,7 @@ export default class GridExample extends React.PureComponent {
                                                     columnWidth={this.columnWidthGetter}
                                                     columnCount={columnCount}
                                                     height={height - headerRowHeight}
+                                                    scrollTop={scrollTop}
                                                     onScroll={onScroll}
                                                     overscanColumnCount={overscanColumnCount}
                                                     overscanRowCount={overscanRowCount}

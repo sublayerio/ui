@@ -157,15 +157,22 @@
         },
         {
           "id": "created",
-          "type": "text"
+          "type": "date",
+          "settings": {
+            "includeTime": true
+          }
         },
         {
           "id": "edited",
-          "type": "text"
+          "type": "date",
+          "settings": {
+            "includeTime": true
+          }
         },
         {
           "id": "url",
-          "type": "text"
+          "type": "text",
+          "displayType": "url"
         },
         {
           "id": "id",
