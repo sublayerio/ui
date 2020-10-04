@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { css, cx } from "emotion";
 import { TabList, Tab } from "../tabs";
 import Record from "./Record";
+import HasOne from "./HasOne";
 import HasMany from "./HasMany";
 
 const layoutComponents = {
@@ -50,6 +51,7 @@ const layoutComponents = {
       </div>
     );
   },
+  HasOne,
   HasMany
 };
 

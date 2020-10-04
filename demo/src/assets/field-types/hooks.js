@@ -32,6 +32,24 @@ const hooks = {
             }
         }
     },
+    "HasOne.onRequest": async params => {
+
+        console.log('HasOne.onRequest', params)
+
+        await sleep(2000)
+
+        const { modelId, recordId, foreignModel, localField } = params
+        const record = params.data[modelId + 'Datas'][recordId]
+
+        const data = clone(params.data)
+
+        return {
+            data: {
+                recordId: record[localField],
+                data
+            }
+        }
+    },
     "Table.onRecordClick": async params => {
 
         alert(`Table.onRecordClick ${JSON.stringify(params)}`)

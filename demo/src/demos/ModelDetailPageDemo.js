@@ -51,9 +51,9 @@ const Example1 = () => {
                             //     name: "Films",
                             //     foreignModel: "film"
                             // },
-                            // {
-                            //     type: "CustomComponent"
-                            // }
+                            {
+                                type: "HasOneExample"
+                            }
                         ]
                     }}
                     components={{

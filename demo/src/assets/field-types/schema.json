@@ -1,4 +1,16 @@
 {
+    "Component": [
+        "HasOneExample"
+    ],
+    "ComponentDatas": {
+        "HasOneExample": {
+            "id": "HasOneExample",
+            "type": "HasOne",
+            "name": "HasOne example",
+            "foreignModel": "example2",
+            "localField": "relationship_hasOne"
+        }
+    },
     "Model": [
         "example",
         "example2"

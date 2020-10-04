@@ -8,6 +8,8 @@ export default class DetailTable extends React.Component {
 
   render() {
 
+    console.log('this.props', this.props)
+
     const { modelId } = this.props
     const model = this.props.schema['ModelDatas'][modelId]
 
