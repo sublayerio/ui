@@ -330,6 +330,7 @@ const Table = (props, ref) => {
         rowHeight: 'small',
         fields: fields.map(field => ({
             id: field.id,
+            name: field.name,
             visible: true,
             width: 220
         })),
