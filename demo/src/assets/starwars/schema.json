@@ -1,4 +1,19 @@
 {
+  "RecordHoverCard": [
+    "people"
+  ],
+  "RecordHoverCardDatas": {
+    "people": {
+      "id": "people",
+      "fields": [
+        "hair_color",
+        "skin_color",
+        "eye_color",
+        "birth_year",
+        "films"
+      ]
+    }
+  },
   "Component": [
     "PlanetFilms",
     "PlanetResidents"
@@ -52,6 +67,7 @@
         },
         {
           "id": "release_date",
+          "name": "Release Date",
           "type": "date"
         },
         {

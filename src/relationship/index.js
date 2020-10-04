@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { css } from 'emotion'
 import get from 'lodash/get'
+import { Manager, Reference, Popper } from 'react-popper';
+import Portal from '../portal'
+import Tooltip from '../tooltip'
 import defaultEmptyRenderer from '../default-empty-renderer'
+import RecordHoverCard from '../record-hover-card'
 
-const Badge = ({ onClick, modelId, recordId, children }) => (
-    <div
-        className={css`
+const ForeignRecordBadge = ({ name, onClick, modelId, recordId, children, data, schema, hooks, record }) => {
+
+    const [hover, setHover] = useState(false)
+
+    const handleMouseEnter = () => setHover(true)
+    const handleMouseLeave = () => setHover(false)
+
+    return (
+        <Manager>
+            <Reference>
+                {({ ref }) => (
+                    <div
+                        ref={ref}
+                        onMouseOver={handleMouseEnter}
+                        onMouseOut={handleMouseLeave}
+                        className={css`
             line-height: 1.5;
             word-break: break-word;
             background-image: linear-gradient(to right, rgba(55, 53, 47, 0.16) 0%, rgba(55, 53, 47, 0.16) 100%);
@@ -25,15 +42,40 @@ const Badge = ({ onClick, modelId, recordId, children }) => (
                 opacity: 0.75;
             }
         `}
-        onClick={e => {
+                        onClick={e => {
 
-            e.stopPropagation()
-            onClick({ modelId, recordId })
-        }}
-    >
-       {children}
-    </div>
-)
+                            e.stopPropagation()
+                            onClick({ modelId, recordId })
+                        }}
+                    >
+                        {name}
+                    </div>
+                )}
+            </Reference>
+            {hover ? (
+                <Popper placement={'top'}>
+                    {({ ref, style, placement, arrowProps }) => (
+                        <Portal>
+                            <div ref={ref} style={style} data-placement={placement} className={css`z-index:1300;`}>
+                                <Tooltip placement={placement}>
+                                    <RecordHoverCard
+                                        name={name}
+                                        schema={schema}
+                                        data={data}
+                                        hooks={hooks}
+                                        record={record}
+                                        modelId={modelId}
+                                        recordId={recordId}
+                                    />
+                                </Tooltip>
+                            </div>
+                        </Portal>
+                    )}
+                </Popper>
+            ) : null}
+        </Manager>
+    )
+}
 
 export const renderer = ({ field, value, data, schema, hooks }) => {
 
@@ -51,6 +93,10 @@ export const renderer = ({ field, value, data, schema, hooks }) => {
     }
 
     const refs = type === 'hasOne' ? [value] : value
+
+    if (!refs.length) {
+        return defaultEmptyRenderer()
+    }
 
     return (
         <div
@@ -71,7 +117,19 @@ export const renderer = ({ field, value, data, schema, hooks }) => {
                     throw new Error(`hooks["relationship.onRecordClick"] is not defined`)
                 }
 
-                return <Badge key={ref} modelId={foreignModelId} recordId={ref} onClick={onRecordClick}>{value}</Badge>
+                return (
+                    <ForeignRecordBadge
+                        key={ref}
+                        name={value}
+                        data={data}
+                        schema={schema}
+                        hooks={hooks}
+                        record={record}
+                        modelId={foreignModelId}
+                        recordId={ref}
+                        onClick={onRecordClick}
+                    />
+                )
             })}
         </div>
     )
