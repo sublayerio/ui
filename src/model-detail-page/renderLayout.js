@@ -7,14 +7,14 @@ import HasMany from "./HasMany";
 const layoutComponents = {
   Row: props => {
     return (
-      <div key={props.key} className={cx("row")}>
+      <div className={cx("row")}>
         {renderLayout(props)(props.children)}
       </div>
     );
   },
   Div: props => {
     return (
-      <div key={props.key} className={cx(props.className)}>
+      <div className={cx(props.className)}>
         {renderLayout(props)(props.children)}
       </div>
     );
@@ -22,7 +22,6 @@ const layoutComponents = {
   Col: props => {
     return (
       <div
-        key={props.key}
         className={props.className ? props.className : "col"}
       >
         {renderLayout(props)(props.children)}
@@ -73,6 +72,7 @@ const renderComponent = ({ key, ctx, type }) => {
 
   return (
     <div
+      key={key}
       className={css`
         margin-bottom: 32px;
       `}
@@ -93,6 +93,7 @@ const Tabs = props => {
       <TabList>
         {children.map((child, index) => (
           <Tab
+            key={index}
             active={index === activeChild}
             onClick={() => setActiveChild(index)}
           >
@@ -100,13 +101,18 @@ const Tabs = props => {
           </Tab>
         ))}
       </TabList>
-      <div
-        className={css`
+      {[activeChild].map(index => {
+        return (
+          <div
+            key={index}
+            className={css`
           margin-top: 32px;
         `}
-      >
-        {renderLayoutChild(props)(child, child.type)}
-      </div>
+          >
+            {renderLayoutChild(props)(child, child.type)}
+          </div>
+        )
+      })}
     </div>
   );
 };

@@ -61,7 +61,6 @@ const Example1 = () => {
                     data={example_data}
                     hooks={example_hooks}
                     onPageRefresh={noop}
-                    onRecordClick={onRecordClick}
                 />
             </div>
         </div>
@@ -117,8 +116,8 @@ const Example2 = () => {
                     modelId={model}
                     schema={starwars_schema}
                     data={starwars_data}
+                    hooks={example_hooks}
                     onPageRefresh={noop}
-                    onRecordClick={onRecordClick}
                 />
             </div>
         </div>

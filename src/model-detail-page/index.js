@@ -4,7 +4,8 @@ import renderLayout from './renderLayout'
 export default class ModelDetailPage extends React.Component {
 
     static defaultProps = {
-        components: {}
+        components: {},
+        hooks: {}
     }
 
     render() {
@@ -25,7 +26,7 @@ export default class ModelDetailPage extends React.Component {
                     data: this.props.data,
                     modelId: this.props.modelId,
                     recordId: this.props.recordId,
-                    onRequest: this.props.onRequest,
+                    onRequest: this.props.onRequest, // deprecated since 1.5.0
                     onPageRefresh: this.props.onPageRefresh,
                     onRecordClick: this.props.onRecordClick
                 })(layout)}

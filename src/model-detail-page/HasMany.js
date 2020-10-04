@@ -42,7 +42,20 @@ export default class HasMany extends React.Component {
 
     fetch = async () => {
 
-        const response = await this.props.onRequest(this.props)
+        const hookId = `HasMany.onRequest`
+
+        let onRequest = this.props.hooks[hookId]
+
+        if (this.props.onRequest) {
+            console.warn('@sublayer/ui/lib/model-detail-page/HasMany: HasMany.onRequest has been deprecated since 1.5.0')
+            onRequest = this.props.onRequest
+        }
+
+        if (!onRequest) {
+            throw new Error(`hooks["HasMany.onRequest"] is not defined`)
+        }
+
+        const response = await onRequest(this.props)
 
         this.setState({
             data: response.data.data,
@@ -102,10 +115,11 @@ export default class HasMany extends React.Component {
                 <Table
                     ref={"table"}
                     modelId={foreignModelId}
+                    hooks={this.props.hooks}
                     schema={this.props.schema}
                     data={this.state.data}
                     onPageRefresh={this.props.onPageRefresh}
-                    onRecordClick={this.props.onRecordClick}
+                    onRecordClick={this.handleRecordClick}
                 />
             </div>
         );

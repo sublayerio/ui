@@ -2,6 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import moment from 'moment/moment'
 import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
+import TruncatedText from '../truncated-text'
 
 export const renderer = ({ field, value }) => {
 
@@ -18,8 +19,8 @@ export const renderer = ({ field, value }) => {
     }
 
     return (
-        <span title={value}>
+        <TruncatedText title={value}>
             {format(value)}
-        </span>
+        </TruncatedText>
     )
 }

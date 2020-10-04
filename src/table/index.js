@@ -37,7 +37,7 @@ const createDownload = ({ name, encodedURI }) => {
     link.click() // This will download the data file named "my_data.csv".
 }
 
-class Table extends React.Component {
+class TableLOC extends React.Component {
 
     cursor = {
         columnIndex: null,
@@ -120,9 +120,20 @@ class Table extends React.Component {
 
     handleRecordClick = ({ recordId }) => {
 
+        const hookId = `Table.onRecordClick`
+
+        let onRecordClick = this.props.hooks[hookId]
+
         if (this.props.onRecordClick) {
-            this.props.onRecordClick({ recordId })
+            console.warn('@sublayer/ui/lib/table: Table.onRecordClick has been deprecated since 1.5.0')
+            onRecordClick = this.props.onRecordClick
         }
+
+        if (!onRecordClick) {
+            throw new Error(`hooks["Table.onRecordClick"] is not defined`)
+        }
+
+        onRecordClick({ modelId: this.props.modelId, recordId })
     }
 
     handleMouseEnter = ({ columnIndex, rowIndex }) => {
@@ -294,9 +305,9 @@ class Table extends React.Component {
     }, 500)
 }
 
-export default (props) => {
+const Table = (props, ref) => {
 
-    const { modelId } = props
+    const { modelId, hooks = {} } = props
 
     const model = props.schema.ModelDatas[modelId]
     const fields = model.fields
@@ -494,9 +505,11 @@ export default (props) => {
                     right: 0;
                 `}
             >
-                <Table
+                <TableLOC
+                    ref={ref}
                     {...props}
                     view={view}
+                    hooks={hooks}
                     onViewChange={({ view }) => setView(view)}
                     fields={viewFields}
                     rows={tableRows}
@@ -505,3 +518,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default React.forwardRef(Table)

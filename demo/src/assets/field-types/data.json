@@ -10,7 +10,7 @@
         },
         "2": {
             "id": "2",
-            "text": "example 2"
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         }
     },
     "example": [
@@ -22,7 +22,7 @@
     "exampleDatas": {
         "1": {
             "id": "1",
-            "relationship_hasOne": "1",
+            "relationship_hasOne": "2",
             "relationship_hasMany": ["1", "2"],
             "text": "Lorem ipsum",
             "singleSelect_expanded": "completed",

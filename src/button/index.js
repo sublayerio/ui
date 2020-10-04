@@ -282,7 +282,9 @@ class Button extends React.Component {
 
 export default Button
 
-const Component = ({ field, hooks, modelId, fieldId }) => {
+const Component = props => {
+
+    const { field, hooks, modelId, fieldId } = props
 
     const { settings = {} } = field
 
@@ -299,10 +301,7 @@ const Component = ({ field, hooks, modelId, fieldId }) => {
 
         e.stopPropagation()
 
-        const hookId = `button.click/${modelId}.${fieldId}`
-
-        console.log('hooks', hooks)
-        console.log('hookId', hookId)
+        const hookId = `button.onClick/${modelId}.${fieldId}`
 
         const hook = hooks[hookId]
 
@@ -310,9 +309,13 @@ const Component = ({ field, hooks, modelId, fieldId }) => {
             return
         }
 
-        console.log('exec hook')
-
-        await hook(e, { loading, setLoading, label, setLabel })
+        await hook(e, {
+            ...props,
+            loading,
+            setLoading,
+            label,
+            setLabel
+        })
     }
 
     return (

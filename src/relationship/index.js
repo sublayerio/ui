@@ -3,13 +3,11 @@ import { css } from 'emotion'
 import get from 'lodash/get'
 import defaultEmptyRenderer from '../default-empty-renderer'
 
-const Badge = ({ children }) => (
+const Badge = ({ onClick, modelId, recordId, children }) => (
     <div
         className={css`
             line-height: 1.5;
-            white-space: normal;
             word-break: break-word;
-            pointer-events: none;
             background-image: linear-gradient(to right, rgba(55, 53, 47, 0.16) 0%, rgba(55, 53, 47, 0.16) 100%);
             background-repeat: repeat-x;
             background-position: 0px 100%;
@@ -18,13 +16,26 @@ const Badge = ({ children }) => (
             display: inline-block;
             margin-right: 8px;
             color: #000;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.75;
+            }
         `}
+        onClick={e => {
+
+            e.stopPropagation()
+            onClick({ modelId, recordId })
+        }}
     >
-        {children}
+       {children}
     </div>
 )
 
-export const renderer = ({ field, value, data, schema }) => {
+export const renderer = ({ field, value, data, schema, hooks }) => {
 
     // const foreignModel = schema.ModelDatas[field.settings.foreignModel]
 
@@ -42,14 +53,25 @@ export const renderer = ({ field, value, data, schema }) => {
     const refs = type === 'hasOne' ? [value] : value
 
     return (
-        <div>
+        <div
+            className={css`
+                width: 100%;
+            `}
+        >
             {refs.map(ref => {
 
                 const record = data[foreignModelId + 'Datas'][ref]
                 const foreignModel = schema.ModelDatas[foreignModelId]
                 const value = record[foreignModel.primaryField || 'id']
 
-                return <Badge key={ref}>{value}</Badge>
+                const hookId = `relationship.onRecordClick`
+                const onRecordClick = hooks[hookId]
+
+                if (!onRecordClick) {
+                    throw new Error(`hooks["relationship.onRecordClick"] is not defined`)
+                }
+
+                return <Badge key={ref} modelId={foreignModelId} recordId={ref} onClick={onRecordClick}>{value}</Badge>
             })}
         </div>
     )

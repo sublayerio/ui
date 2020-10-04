@@ -1,6 +1,5 @@
 import React from 'react'
 import { css } from 'emotion'
-import clone from 'lodash/clone'
 import { Canvas, Heading, Box } from '@pndr/demo-utils'
 
 import starwars_schema from '../assets/starwars/schema.json'
@@ -10,27 +9,6 @@ import field_types_data from '../assets/field-types/data.json'
 import field_types_hooks from '../assets/field-types/hooks'
 
 import ModelDetailPage from '../../../src/model-detail-page'
-
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-const onRequest = async params => {
-    console.log('onRequest', params)
-
-    await wait(2000)
-
-    const { modelId, recordId, foreignModel } = params
-    const record = params.data[modelId + 'Datas'][recordId]
-
-    const data = clone(params.data)
-
-    data[foreignModel] = record.films
-
-    return {
-        data: {
-            data
-        }
-    }
-}
 
 const noop = () => { }
 
@@ -91,7 +69,6 @@ const Example1 = () => {
                     schema={field_types_schema}
                     data={field_types_data}
                     hooks={field_types_hooks}
-                    onRequest={onRequest}
                     onPageRefresh={noop}
                 />
             </Box>
@@ -106,7 +83,7 @@ const Example2 = () => {
             <Box>
                 <ModelDetailPage
                     modelDetailPage={{
-                        "id": "people",
+                        "id": "planet",
                         "layout": [
                             {
                                 "type": "Row",
@@ -120,31 +97,13 @@ const Example2 = () => {
                                                 "children": [
                                                     {
                                                         "type": "RecordDetailTable",
-                                                        "title": "Basic info",
-                                                        "fields": [
-                                                            "name",
-                                                            "height",
-                                                            "mass",
-                                                            "hair_color",
-                                                            "skin_color",
-                                                            "eye_color",
-                                                            "birth_year",
-                                                            "gender",
-                                                            "homeworld",
-                                                            "films",
-                                                            "species",
-                                                            "vehicles",
-                                                            "starships",
-                                                            "created",
-                                                            "edited",
-                                                        ]
+                                                        "title": "Basic info"
                                                     },
                                                     {
                                                         "type": "RecordDetailTable",
                                                         "title": "Compact info",
                                                         "fields": [
-                                                            "eye_color",
-                                                            "birth_year"
+                                                            "rotation_period"
                                                         ]
                                                     }
                                                 ]
@@ -154,10 +113,24 @@ const Example2 = () => {
                                 ]
                             },
                             {
-                                id: "film",
-                                type: "HasMany",
-                                name: "Films",
-                                foreignModel: "film"
+                                "type": "Tabs",
+                                "children": [
+                                    {
+                                        id: "planetResidents",
+                                        type: "PlanetResidents",
+                                        title: "Residents",
+                                    },
+                                    {
+                                        id: "planetFilms",
+                                        type: "PlanetFilms",
+                                        title: "Films",
+                                    },
+                                    // {
+                                    //     id: "planetFilms",
+                                    //     type: "PlanetFilms",
+                                    //     name: "Films",
+                                    // }
+                                ]
                             },
                             {
                                 type: 'CustomComponent'
@@ -172,11 +145,11 @@ const Example2 = () => {
                             </div>
                         )
                     }}
-                    modelId={'people'}
-                    recordId={'http://swapi.dev/api/people/1/'}
+                    modelId={'planet'}
+                    recordId={'http://swapi.dev/api/planets/1/'}
                     schema={starwars_schema}
                     data={starwars_data}
-                    onRequest={onRequest}
+                    hooks={field_types_hooks}
                     onPageRefresh={noop}
                 />
             </Box>

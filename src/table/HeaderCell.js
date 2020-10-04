@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx, css } from 'emotion'
 import Draggable from 'react-draggable'
-
+import TruncatedText from '../truncated-text'
 class HeaderCell extends React.Component {
 
     state = {
@@ -70,7 +70,9 @@ class HeaderCell extends React.Component {
                 <div
                     className={'headerCell'}
                 >
-                    {this.props.children}
+                    <TruncatedText>
+                        {this.props.children}
+                    </TruncatedText>
                 </div>
                 <div
                     className={css`
@@ -94,7 +96,7 @@ class HeaderCell extends React.Component {
                             border-radius: 6px;
                         `,
                             this.state.resizing ? css`
-                                background: rgba(0, 34, 253, 0.8);
+                                background: rgba(var(--primaryColor), 0.8);
                                 ` : null
                         )}
                     />
@@ -130,7 +132,7 @@ class HeaderCell extends React.Component {
                         `,
                             !this.state.resizing ? css`
                     &:hover {
-                        background: rgba(0, 34, 253, 0.8);
+                        background: rgba(var(--primaryColor), 0.8);
                     }
                     ` : null
                         )}

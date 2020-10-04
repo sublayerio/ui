@@ -14,6 +14,8 @@ import { renderer as html } from '../html'
 import { renderer as url } from '../url'
 import { renderer as boolean } from '../boolean'
 import { renderer as button } from '../button'
+import { renderer as text } from '../text'
+import TruncatedText from '../truncated-text'
 
 const displayTypeRenderers = {
     progressBar,
@@ -32,7 +34,8 @@ const renderers = {
     number,
     json,
     boolean,
-    button
+    button,
+    text
 }
 
 export default props => {
@@ -57,8 +60,8 @@ export default props => {
     const { value } = props
 
     return (
-        <div>
+        <TruncatedText>
             {value}
-        </div>
+        </TruncatedText>
     )
 }

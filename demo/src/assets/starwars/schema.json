@@ -1,4 +1,24 @@
 {
+  "Component": [
+    "PlanetFilms",
+    "PlanetResidents"
+  ],
+  "ComponentDatas": {
+    "PlanetFilms": {
+      "id": "PlanetFilms",
+      "type": "HasMany",
+      "name": "Films",
+      "foreignModel": "film",
+      "localField": "films"
+    },
+    "PlanetResidents": {
+      "id": "PlanetResidents",
+      "type": "HasMany",
+      "name": "Residents",
+      "foreignModel": "people",
+      "localField": "residents"
+    }
+  },
   "Model": [
     "film",
     "planet",
