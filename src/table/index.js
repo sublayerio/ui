@@ -222,6 +222,7 @@ class TableLOC extends React.Component {
             field,
             modelId: this.props.modelId,
             fieldId: field.id,
+            recordId: record.id,
             hooks: this.props.hooks,
             schema: this.props.schema,
             data: this.props.data,
@@ -392,7 +393,7 @@ const Table = (props, ref) => {
         const json_string = JSON.stringify(readableRows, null, 2)
 
         createDownload({
-            name: `${model.plural}_${moment().format('YYYY-MM-DD_hh.mm.ss')}.json`,
+            name: `${model.plural}_${view.get('name')}_${moment().format('YYYY-MM-DD_hh.mm.ss')}.json`,
             encodedURI: encodeURI(`data:application/json;charset=utf-8,` + json_string)
         })
     }
@@ -410,6 +411,16 @@ const Table = (props, ref) => {
         )
 
     const tableRows = filteredRows ? filteredRows : viewRows
+
+    const handleExportViewConfiguration = () => {
+
+        const json_string = JSON.stringify(view.toJS(), null, 2)
+
+        createDownload({
+            name: `${model.plural}_${moment().format('YYYY-MM-DD_hh.mm.ss')}.json`,
+            encodedURI: encodeURI(`data:application/json;charset=utf-8,` + json_string)
+        })
+    }
 
     return (
         <div>
@@ -436,6 +447,7 @@ const Table = (props, ref) => {
                         view={view}
                         onExportToJSON={handleExportToJSON}
                         onExportToCSV={handleExportToCSV}
+                        onExportViewConfiguration={handleExportViewConfiguration}
                     />
                 </div>
                 <div

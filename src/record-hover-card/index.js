@@ -66,6 +66,7 @@ export default class RecordHoverCard extends React.Component {
                             field,
                             modelId,
                             fieldId: field.id,
+                            recordId: record.id,
                             context: 'cell',
                             hooks: this.props.hooks,
                             schema: this.props.schema,

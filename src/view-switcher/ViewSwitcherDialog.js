@@ -76,13 +76,16 @@ export default class ViewSwitcherDialog extends React.Component {
                 >
                     <SwitcherMenuHeader>
                         Actions
-                                            </SwitcherMenuHeader>
+                    </SwitcherMenuHeader>
                     <SwitcherMenuItem onClick={this.props.onExportToJSON}>
                         Export to JSON
-                                            </SwitcherMenuItem>
+                    </SwitcherMenuItem>
                     <SwitcherMenuItem onClick={this.props.onExportToCSV}>
                         Export to CSV
-                                            </SwitcherMenuItem>
+                    </SwitcherMenuItem>
+                    <SwitcherMenuItem onClick={this.props.onExportViewConfiguration}>
+                        Export view configuration
+                    </SwitcherMenuItem>
                 </div>
                 {false ? (
                     <div
