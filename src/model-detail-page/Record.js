@@ -90,7 +90,7 @@ export default class DetailTable extends React.Component {
 
   handleSave = () => {
 
-    const { hooks } = this.props
+    const { hooks, recordId, modelId } = this.props
 
     const { changes, changed, prev, value } = this.getData({
       changes: this.state.changes
@@ -113,6 +113,8 @@ export default class DetailTable extends React.Component {
 
       if (!hookFn) {
         hookFn({
+          modelId,
+          recordId,
           changes,
           changed,
           prev,
