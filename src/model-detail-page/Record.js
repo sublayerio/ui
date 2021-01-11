@@ -102,31 +102,28 @@ export default class DetailTable extends React.Component {
       changes: []
     })
 
-    if (changes.length) {
-
-      const hookFn = hooks["Record.onChange"]
-
-      if (!hookFn) {
-        console.warn('hook "Record.onChange" not registered')
-        return
-      }
-
-      if (!hookFn) {
-        hookFn({
-          modelId,
-          recordId,
-          changes,
-          changed,
-          prev,
-          value
-        })
-      }
+    if (!changes.length) {
+      return
     }
+
+    const hookFn = hooks["Record.onChange"]
+
+    if (!hookFn) {
+      console.warn('hook "Record.onChange" not registered')
+      return
+    }
+
+    hookFn({
+      modelId,
+      recordId,
+      changes,
+      changed,
+      prev,
+      value
+    })
   }
 
   render() {
-
-    console.log('DetailTable', this.props)
 
     const { modelId } = this.props
     const model = this.props.schema['ModelDatas'][modelId]
