@@ -100,6 +100,27 @@
                     }
                 },
                 {
+                    "id": "date",
+                    "type": "date",
+                    "settings": {
+                        "includeTime": false
+                    }
+                },
+                {
+                    "id": "date_includeTime",
+                    "type": "date",
+                    "settings": {
+                        "includeTime": true
+                    }
+                },
+                {
+                    "id": "date_custom",
+                    "type": "date",
+                    "settings": {
+                        "includeTime": false
+                    }
+                },
+                {
                     "id": "json",
                     "type": "json"
                 },

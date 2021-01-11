@@ -2,11 +2,32 @@ import React from 'react'
 import numeral from 'numeral'
 import get from 'lodash/get'
 import times from 'lodash/times'
+import NumberInput from '../number-input'
 
-export const renderer = ({ field, value }) => {
+export const renderer = ({ fieldId, field, value, editing, onChange }) => {
 
     const format = get(field, 'settings.format')
+    const allowNegativeNumbers = get(field, 'settings.allowNegativeNumbers')
     const precision = get(field, 'settings.precision', 2)
+
+    if (editing) {
+
+        return (
+            <NumberInput
+                size={'sm'}
+                value={value}
+                allowNegative={allowNegativeNumbers}
+                format={format}
+                precision={precision}
+                onChange={({ value }) => {
+                    onChange({
+                        id: fieldId,
+                        value
+                    })
+                }}
+            />
+        )
+    }
 
     let precisionString = ''
 

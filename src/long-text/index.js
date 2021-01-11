@@ -1,17 +1,19 @@
 import React from 'react'
+import { css } from 'emotion'
 import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 import TruncatedText from '../truncated-text'
-import TextInput from '../text-input'
+import LongTextField from '../long-text-field'
 
 const Component = props => {
 
-    const { fieldId, value, editing, onChange } = props
+    const { fieldId, value, editing, onChange, context } = props
 
     if (editing) {
 
         return (
-            <TextInput
-                size={'sm'}
+            <LongTextField
+                contextId={'recordDetail'}
+                roleId={'editor'}
                 value={value}
                 onChange={({ value }) => {
 
@@ -26,6 +28,19 @@ const Component = props => {
 
     if (!value) {
         return defaultEmptyRenderer()
+    }
+
+    if (context === 'detail') {
+
+        return (
+            <div
+                className={css`
+                    white-space: pre-wrap;
+                `}
+            >
+                {value}
+            </div> 
+        )
     }
 
     return (

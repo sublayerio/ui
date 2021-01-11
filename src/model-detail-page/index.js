@@ -18,18 +18,20 @@ export default class ModelDetailPage extends React.Component {
 
         return (
             <div>
-                {renderLayout({
-                    record,
-                    components: this.props.components,
-                    hooks: this.props.hooks,
-                    schema: this.props.schema,
-                    data: this.props.data,
-                    modelId: this.props.modelId,
-                    recordId: this.props.recordId,
-                    onRequest: this.props.onRequest, // deprecated since 1.5.0
-                    onPageRefresh: this.props.onPageRefresh,
-                    onRecordClick: this.props.onRecordClick
-                })(layout)}
+                <div>
+                    {renderLayout({
+                        record,
+                        components: this.props.components,
+                        hooks: this.props.hooks,
+                        schema: this.props.schema,
+                        data: this.props.data,
+                        modelId: this.props.modelId,
+                        recordId: this.props.recordId,
+                        onRequest: this.props.onRequest, // deprecated since 1.5.0
+                        onPageRefresh: this.props.onPageRefresh,
+                        onRecordClick: this.props.onRecordClick
+                    })(layout)}
+                </div>
             </div>
         )
     }

@@ -15,6 +15,7 @@ import { renderer as url } from '../url'
 import { renderer as boolean } from '../boolean'
 import { renderer as button } from '../button'
 import { renderer as text } from '../text'
+import { renderer as longText } from '../long-text'
 import TruncatedText from '../truncated-text'
 
 const displayTypeRenderers = {
@@ -35,7 +36,8 @@ const renderers = {
     json,
     boolean,
     button,
-    text
+    text,
+    longText
 }
 
 export default props => {
@@ -57,7 +59,7 @@ export default props => {
         return renderer(props)
     }
 
-    const { value } = props
+    const { value, context } = props
 
     return (
         <TruncatedText>
