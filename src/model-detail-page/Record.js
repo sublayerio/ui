@@ -185,7 +185,7 @@ export default class DetailTable extends React.Component {
                   record,
                   field,
                   modelId,
-                  editing: this.state.editing,
+                  editing: this.state.editing && !field.virtual,
                   fieldId: field.id,
                   context: 'detail',
                   hooks: this.props.hooks,
