@@ -212,7 +212,8 @@
                     "id": "number_percentage",
                     "type": "number",
                     "settings": {
-                        "format": "integer",
+                        "format": "decimal",
+                        "precision": 2,
                         "ui": "percentage"
                     }
                 },

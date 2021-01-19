@@ -52,7 +52,7 @@
             "number_integer": 10,
             "number_decimal": 10.12345,
             "number_currency": 10.1235,
-            "number_percentage": 10.12345,
+            "number_percentage": 0.22,
             "number_progressbar": 75
         },
         "2": {
@@ -85,7 +85,7 @@
             "number_integer": 10,
             "number_decimal": 10.12345,
             "number_currency": 10.1235,
-            "number_percentage": 10.12345,
+            "number_percentage": 0.22,
             "number_progressbar": 75
         },
         "3": {
@@ -118,7 +118,7 @@
             "number_integer": 10,
             "number_decimal": 10.12345,
             "number_currency": 10.1235,
-            "number_percentage": 10.12345,
+            "number_percentage": 0.22,
             "number_progressbar": 75
         },
         "4": {

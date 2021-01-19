@@ -6,9 +6,15 @@ import NumberInput from '../number-input'
 
 export const renderer = ({ fieldId, field, value, editing, onChange }) => {
 
-    const format = get(field, 'settings.format')
+    let format = get(field, 'settings.format')
     const allowNegativeNumbers = get(field, 'settings.allowNegativeNumbers')
     const precision = get(field, 'settings.precision', 2)
+    const ui = get(field, 'settings.ui')
+
+    let displayPrecision = precision
+    if (ui === 'percentage') {
+        displayPrecision = precision - 2
+    }
 
     if (editing) {
 
@@ -30,13 +36,15 @@ export const renderer = ({ fieldId, field, value, editing, onChange }) => {
     }
 
     let precisionString = ''
+    let displayPrecisionString = ''
 
     if (format === 'decimal' && precision > 0) {
         precisionString = '.' + times(precision).map(() => 0).join('')
+        displayPrecisionString = '.' + times(displayPrecision).map(() => 0).join('')
     }
 
     const renderers = {
-        percentage: value => numeral(value).format(`0${precisionString}`) + '%',
+        percentage: value => numeral(value * 100).format(`0${displayPrecisionString}`) + '%',
         currency: value => numeral(value).format(`$ 0,0${precisionString}`),
         distance: value => `${numeral(value).format('0,0')} km`
     }
@@ -53,8 +61,6 @@ export const renderer = ({ fieldId, field, value, editing, onChange }) => {
 
         return value
     }
-
-    const ui = get(field, 'settings.ui')
 
     const renderer = renderers[ui] || defaultRenderer
 
