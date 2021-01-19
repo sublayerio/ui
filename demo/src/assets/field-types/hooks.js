@@ -3,8 +3,9 @@ import clone from 'lodash/clone'
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 const hooks = {
-    "Record.onChange": async params => {
-        console.log('Record.onChange', params)
+    "Record.onChange": async (params, { onPageRefresh }) => {
+        console.log('Record.onChange', params, onPageRefresh)
+        onPageRefresh()
     },
     "button.onClick/example.button": async (e, { setLoading, label, setLabel }) => {
 

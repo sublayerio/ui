@@ -10,7 +10,9 @@ import field_types_hooks from '../assets/field-types/hooks'
 
 import ModelDetailPage from '../../../src/model-detail-page'
 
-const noop = () => { }
+const onPageRefresh = () => {
+    console.log('onPageRefresh called')
+}
 
 const Example1 = () => {
 
@@ -69,7 +71,7 @@ const Example1 = () => {
                     schema={field_types_schema}
                     data={field_types_data}
                     hooks={field_types_hooks}
-                    onPageRefresh={noop}
+                    onPageRefresh={onPageRefresh}
                 />
             </Box>
         </Canvas>
@@ -150,7 +152,7 @@ const Example2 = () => {
                     schema={starwars_schema}
                     data={starwars_data}
                     hooks={field_types_hooks}
-                    onPageRefresh={noop}
+                    onPageRefresh={onPageRefresh}
                 />
             </Box>
         </Canvas>

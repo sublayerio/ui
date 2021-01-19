@@ -120,7 +120,7 @@ export default class DetailTable extends React.Component {
       changed,
       prev,
       value
-    })
+    }, this.props)
   }
 
   render() {
@@ -179,12 +179,14 @@ export default class DetailTable extends React.Component {
 
                 let value = record[field.id]
 
+                const editing = this.state.editing && !field.readOnly
+
                 const content = fieldRenderer({
                   value,
                   record,
                   field,
                   modelId,
-                  editing: this.state.editing && !field.virtual,
+                  editing,
                   fieldId: field.id,
                   context: 'detail',
                   hooks: this.props.hooks,
