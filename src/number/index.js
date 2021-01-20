@@ -2,6 +2,7 @@ import React from 'react'
 import numeral from 'numeral'
 import get from 'lodash/get'
 import times from 'lodash/times'
+import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 import NumberInput from '../number-input'
 
 export const renderer = ({ fieldId, field, value, editing, onChange }) => {
@@ -60,6 +61,10 @@ export const renderer = ({ fieldId, field, value, editing, onChange }) => {
         }
 
         return value
+    }
+
+    if (value !== 0 && !value) {
+        return defaultEmptyRenderer()
     }
 
     const renderer = renderers[ui] || defaultRenderer
