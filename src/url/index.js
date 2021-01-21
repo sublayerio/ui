@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { css } from 'emotion'
+import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const copy = props => (
@@ -27,6 +28,10 @@ const CopyLink = ({ value }) => {
     )
 }
 export const renderer = ({ value }) => {
+
+    if (!value) {
+        return defaultEmptyRenderer()
+    }
 
     return (
         <div

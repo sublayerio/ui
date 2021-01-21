@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import get from 'lodash/get'
 import { css } from 'emotion'
 import { Manager, Reference, Popper } from 'react-popper';
 import ReactJson from 'react-json-view'
@@ -6,19 +7,24 @@ import Portal from '../portal'
 import Tooltip from '../tooltip'
 import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 
-const Component = ({ value, context }) => {
+const Component = ({ value, context, field }) => {
 
+    
     if (!value) {
         return defaultEmptyRenderer()
     }
 
+    
+    
+    let collapsed = get(field, 'settings.collapsed', false)
+    
+    const value_string = JSON.stringify(value)
+    collapsed = value_string.length > 100000 ? 1 : collapsed // larger than ~100kb? collapse on first level
+    
     const [hover, setHover] = useState(false)
 
     const handleMouseEnter = () => setHover(true)
     const handleMouseLeave = () => setHover(false)
-
-    const value_string = JSON.stringify(value)
-    const collapsed = value_string.length > 100000 ? 1 : false // larger than ~100kb? collapse on first level
 
     if (context === 'detail') {
 

@@ -122,7 +122,10 @@
                 },
                 {
                     "id": "json",
-                    "type": "json"
+                    "type": "json",
+                    "settings": {
+                        "collapsed": false
+                    }
                 },
                 {
                     "id": "text",
