@@ -43,6 +43,7 @@
                     "id": "button",
                     "name": "Button",
                     "type": "button",
+                    "readOnly": true,
                     "settings": {
                         "label": "Dangerous action",
                         "variant": "danger"
@@ -53,6 +54,7 @@
                     "name": "Relationship",
                     "description": "Has one type relationship",
                     "type": "relationship",
+                    "readOnly": true,
                     "settings": {
                         "type": "hasOne",
                         "foreignModel": "example2"
@@ -61,6 +63,7 @@
                 {
                     "id": "relationship_hasMany",
                     "type": "relationship",
+                    "readOnly": true,
                     "settings": {
                         "type": "hasMany",
                         "foreignModel": "example2"
@@ -69,6 +72,7 @@
                 {
                     "id": "singleSelect_expanded",
                     "type": "singleSelect",
+                    "readOnly": true,
                     "settings": {
                         "expanded": true,
                         "options": [
@@ -102,6 +106,7 @@
                 {
                     "id": "date",
                     "type": "date",
+                    "readOnly": false,
                     "settings": {
                         "includeTime": false
                     }
@@ -109,6 +114,7 @@
                 {
                     "id": "date_includeTime",
                     "type": "date",
+                    "readOnly": true,
                     "settings": {
                         "includeTime": true
                     }
@@ -116,6 +122,7 @@
                 {
                     "id": "date_custom",
                     "type": "date",
+                    "readOnly": true,
                     "settings": {
                         "includeTime": false
                     }
@@ -123,13 +130,15 @@
                 {
                     "id": "json",
                     "type": "json",
+                    "readOnly": true,
                     "settings": {
                         "collapsed": false
                     }
                 },
                 {
                     "id": "text",
-                    "type": "text"
+                    "type": "text",
+                    "readOnly": false
                 },
                 {
                     "id": "text_url",
@@ -148,7 +157,8 @@
                 },
                 {
                     "id": "longText",
-                    "type": "longText"
+                    "type": "longText",
+                    "readOnly": false
                 },
                 {
                     "id": "longText_html",
@@ -168,6 +178,7 @@
                 {
                     "id": "boolean_checkbox",
                     "type": "boolean",
+                    "readOnly": true,
                     "settings": {
                         "trueLabel": "On",
                         "falseLabel": "Off"
@@ -176,6 +187,7 @@
                 {
                     "id": "boolean_toggle",
                     "type": "boolean",
+                    "readOnly": true,
                     "settings": {
                         "ui": "toggle"
                     }
@@ -183,6 +195,7 @@
                 {
                     "id": "number_float",
                     "type": "number",
+                    "readOnly": false,
                     "settings": {
                         "format": "float"
                     }
@@ -190,6 +203,7 @@
                 {
                     "id": "number_integer",
                     "type": "number",
+                    "readOnly": true,
                     "settings": {
                         "format": "integer"
                     }
@@ -197,6 +211,7 @@
                 {
                     "id": "number_decimal",
                     "type": "number",
+                    "readOnly": true,
                     "settings": {
                         "format": "decimal",
                         "precision": 2
@@ -205,6 +220,7 @@
                 {
                     "id": "number_currency",
                     "type": "number",
+                    "readOnly": true,
                     "settings": {
                         "format": "decimal",
                         "precision": 2,
@@ -214,6 +230,7 @@
                 {
                     "id": "number_percentage",
                     "type": "number",
+                    "readOnly": true,
                     "settings": {
                         "format": "decimal",
                         "precision": 2,

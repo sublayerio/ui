@@ -125,6 +125,8 @@ export default class DetailTable extends React.Component {
 
   render() {
 
+    console.log('propsss', this.props)
+
     const { modelId } = this.props
     const model = this.props.schema['ModelDatas'][modelId]
 
@@ -136,30 +138,55 @@ export default class DetailTable extends React.Component {
       )
     }
 
+    const containsEditableFields = fields.reduce((result, field) => {
+
+      if (result) return result
+
+      return field.readOnly === false
+
+    }, false)
+
     return (
       <div>
-        <div
-          className={css`
+        {this.props.showTitle !== false || containsEditableFields ? (
+          <div
+            className={css`
+            display: flex;
+            align-items: center;
             margin-bottom: 16px;
           `}
-        >
-          {!this.state.editing ? (
-            <Button size="sm" onClick={this.handleEdit}>
-              edit
-            </Button>
-          ) : null}
-          {this.state.editing ? (
-            <React.Fragment>
-              <Button size="sm" onClick={this.handleSave}>
-                save
+          >
+            {this.props.showTitle !== false ? (
+              <div>
+                <h3>{this.props.title}</h3>
+              </div>
+            ) : null}
+            {containsEditableFields ? (
+              <div
+                className={css`
+                margin-left: auto;
+              `}
+              >
+                {!this.state.editing ? (
+                  <Button size="sm" onClick={this.handleEdit}>
+                    edit
+                  </Button>
+                ) : null}
+                {this.state.editing ? (
+                  <React.Fragment>
+                    <Button size="sm" primary onClick={this.handleSave}>
+                      save
               </Button>
-              {' '}
-              <Button size="sm" onClick={this.handleDiscard}>
-                discard
+                    {' '}
+                    <Button size="sm" onClick={this.handleDiscard}>
+                      discard
               </Button>
-            </React.Fragment>
-          ) : null}
-        </div>
+                  </React.Fragment>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
         <Box>
           <table
             className={css`
