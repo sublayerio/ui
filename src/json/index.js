@@ -19,7 +19,7 @@ const Component = ({ value, context, field }) => {
     let collapsed = get(field, 'settings.collapsed', false)
     
     const value_string = JSON.stringify(value)
-    collapsed = value_string.length > 100000 ? 1 : collapsed // larger than ~100kb? collapse on first level
+    collapsed = value_string.length > 100000 && collapsed > 1 ? 1 : collapsed // larger than ~100kb? collapse on first level
     
     const [hover, setHover] = useState(false)
 
