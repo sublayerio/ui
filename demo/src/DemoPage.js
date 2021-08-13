@@ -1,5 +1,15 @@
 import React from 'react'
 import demos from './demos'
+import Context from '../../src/context'
+
+const getDeveloperMode = () => {
+
+    try {
+        return localStorage.developerMode === "true"
+    } catch (e) {
+        return false
+    }
+}
 
 const DemoPage = props => {
 
@@ -17,7 +27,11 @@ const DemoPage = props => {
 
     const Component = demo.component
 
-    return <Component {...props} />
+    return (
+        <Context.Provider value={{ developerMode: getDeveloperMode() }}>
+            <Component {...props} />
+        </Context.Provider>
+    )
 }
 
 export default DemoPage
