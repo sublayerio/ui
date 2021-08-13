@@ -135,7 +135,7 @@ export const renderer = ({ field, value, data, schema, hooks }) => {
     )
 }
 
-export const textFormatter = ({ field, value, data, schema }) => {
+export const textFormatter = ({ context = 'text', field, value, data, schema }) => {
 
     const type = get(field, 'settings.type')
     const foreignModelId = get(field, 'settings.foreignModel')
@@ -149,6 +149,10 @@ export const textFormatter = ({ field, value, data, schema }) => {
     }
 
     const refs = type === 'hasOne' ? [value] : value
+
+    if (context === 'value') {
+        return refs.join(', ')
+    }
 
     return refs.map(ref => {
 

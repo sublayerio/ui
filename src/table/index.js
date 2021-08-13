@@ -353,12 +353,13 @@ const Table = (props, ref) => {
 
             const value = record[field.id]
 
-            if (!textFormatter) {
+            if (textFormatter) {
+                result[`${field.id}_text`] = textFormatter({ context: 'text', field, value, record, schema: props.schema, data: props.data })
+                result[field.id] = textFormatter({ context: 'value', field, value, record, schema: props.schema, data: props.data })
+            } else {
                 result[field.id] = value
-                return
             }
 
-            result[field.id] = textFormatter({ field, value, record, schema: props.schema, data: props.data })
             return result
         })
 

@@ -95,12 +95,16 @@ const SingleSelectCell = ({ field, value }) => {
 }
 
 export const renderer = ({ field, value }) => <SingleSelectCell field={field} value={value} />
-export const textFormatter = ({ field, value }) => {
+export const textFormatter = ({ context = 'text', field, value }) => {
 
     const option = field.settings.options.find(option => option.id === value)
 
     if (!option) {
         return value
+    }
+
+    if (context === 'value') {
+        return option.id
     }
 
     return option.name ? option.name : option.id

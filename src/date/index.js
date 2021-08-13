@@ -44,3 +44,21 @@ export const renderer = ({ fieldId, field, onChange, value, editing }) => {
         </TruncatedText>
     )
 }
+
+export const textFormatter = ({ context = 'value', field, value }) => {
+
+    const sameTimeZone = get(field, 'settings.sameTimeZone', false)
+    const includeTime = get(field, 'settings.includeTime', false)
+
+    let format = value => moment(value).format('D MMMM YYYY')
+
+    if (includeTime) {
+        format = value => `${moment(value).format('D MMMM YYYY')} om ${moment(value).format('HH:mm')}`
+    }
+
+    if (context === 'value') {
+        return value
+    }
+
+    return format(value)
+}

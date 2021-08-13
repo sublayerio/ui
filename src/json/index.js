@@ -9,18 +9,18 @@ import defaultEmptyRenderer from '../table/defaultEmptyRenderer'
 
 const Component = ({ value, context, field }) => {
 
-    
+
     if (!value) {
         return defaultEmptyRenderer()
     }
 
-    
-    
+
+
     let collapsed = get(field, 'settings.collapsed', false)
-    
+
     const value_string = JSON.stringify(value)
     collapsed = value_string.length > 100000 && collapsed > 1 ? 1 : collapsed // larger than ~100kb? collapse on first level
-    
+
     const [hover, setHover] = useState(false)
 
     const handleMouseEnter = () => setHover(true)
@@ -100,3 +100,8 @@ const Component = ({ value, context, field }) => {
     )
 }
 export const renderer = props => <Component {...props} />
+
+export const textFormatter = ({ value }) => {
+
+    return value ? JSON.stringify(value, null, 2) : value
+}
