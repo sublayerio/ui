@@ -5,6 +5,8 @@ import example_data from '../assets/field-types/data.json'
 import example_hooks from '../assets/field-types/hooks'
 import starwars_schema from '../assets/starwars/schema.json'
 import starwars_data from '../assets/starwars/data.json'
+import big_schema from '../assets/big-data/schema.json'
+import big_data from '../assets/big-data/data.json'
 
 import Table from '../../../src/table'
 
@@ -38,7 +40,7 @@ const Example1 = () => {
             >
                 <h3>Field example dataset</h3>
                 <div className={css`margin-left: auto;`}>
-                <select value={model} onChange={e => setModel(e.target.value)}>
+                    <select value={model} onChange={e => setModel(e.target.value)}>
                         <option value={'example'}>example</option>
                     </select>
                 </div>
@@ -93,7 +95,7 @@ const Example2 = () => {
             >
                 <h3>Starwars dataset</h3>
                 <div className={css`margin-left: auto;`}>
-                <select value={model} onChange={e => setModel(e.target.value)}>
+                    <select value={model} onChange={e => setModel(e.target.value)}>
                         <option value={'people'}>people</option>
                         <option value={'film'}>film</option>
                         <option value={'planet'}>planet</option>
@@ -124,10 +126,59 @@ const Example2 = () => {
     )
 }
 
+const Example3 = () => {
+
+    return (
+        <div
+            className={css`
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            margin-bottom: 32px;
+            `}
+        >
+            <div
+                className={css`
+                position: absolute;
+                top: 0;
+                height: 50px;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: center;
+            `}
+            >
+                <h3>Big data example dataset</h3>
+            </div>
+            <div
+                className={css`
+                position: absolute;
+                top: 50px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-radius: 10px;
+                border: 1px solid #f2f2f2;
+                overflow: hidden;
+            `}
+            >
+                <Table
+                    modelId={'People'}
+                    schema={big_schema}
+                    data={big_data}
+                    hooks={example_hooks}
+                    onPageRefresh={noop}
+                />
+            </div>
+        </div>
+    )
+}
+
 const TableDemo = () => (
     <div
         className={css`padding: 0 16px; background-color: #fff;`}
     >
+        <Example3 />
         <Example1 />
         <Example2 />
     </div>

@@ -33,6 +33,7 @@
     "axios": "^0.19.2",
     "dom-helpers": "^5.1.4",
     "emotion": "^10.0.27",
+    "faker": "^5.5.3",
     "immutable": "^4.0.0-rc.12",
     "js-search": "^2.0.0",
     "numeral": "^2.0.6",

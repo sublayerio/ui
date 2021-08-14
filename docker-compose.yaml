@@ -1,9 +1,8 @@
-version: '3'
+version: "3"
 
 services:
-
   ui:
-    image: node:10
+    image: node:14
     stdin_open: true
     working_dir: /app
     volumes:

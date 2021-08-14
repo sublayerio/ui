@@ -1,0 +1,70 @@
+{
+  "Model": [
+    "People"
+  ],
+  "ModelDatas": {
+    "People": {
+      "id": "People",
+      "plural": "People",
+      "primaryField": "name",
+      "fields": [
+        {
+          "id": "image",
+          "type": "text"
+        },
+        {
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "id": "name",
+          "type": "text"
+        },
+        {
+          "id": "email",
+          "type": "text"
+        },
+        {
+          "id": "phone",
+          "type": "text"
+        },
+        {
+          "id": "website",
+          "type": "text"
+        },
+        {
+          "id": "address",
+          "type": "text"
+        },
+        {
+          "id": "city",
+          "type": "text"
+        },
+        {
+          "id": "country",
+          "type": "text"
+        },
+        {
+          "id": "latitude",
+          "type": "text"
+        },
+        {
+          "id": "longitude",
+          "type": "text"
+        },
+        {
+          "id": "companyName",
+          "type": "text"
+        },
+        {
+          "id": "createdAt",
+          "type": "text"
+        },
+        {
+          "id": "id",
+          "type": "id"
+        }
+      ]
+    }
+  }
+}
