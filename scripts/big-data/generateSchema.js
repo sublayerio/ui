@@ -3,6 +3,11 @@ const models = [
         id: 'People',
         plural: 'People',
         primaryField: 'name',
+        views: [
+            "allPeople",
+            "peopleFromHonduras",
+            "peopleFromSpain"
+        ],
         fields: [
             {
                 id: 'image',
@@ -64,6 +69,53 @@ const models = [
     }
 ]
 
+const model = models[0]
+
+const views = [
+    {
+        id: 'allPeople',
+        modelId: 'People',
+        type: 'grid',
+        name: `Alle ${model.plural}`,
+        rowHeight: 'small',
+        fields: model.fields.map(field => ({
+            id: field.id,
+            visible: true,
+            width: 220
+        })),
+        filters: [],
+        sorters: []
+    },
+    {
+        id: 'peopleFromHonduras',
+        modelId: 'People',
+        type: 'grid',
+        name: `${model.plural} from Honduras`,
+        rowHeight: 'small',
+        fields: model.fields.map((field, index) => ({
+            id: field.id,
+            visible: true,
+            width: index === 0 ? 320 : 220
+        })),
+        filters: [],
+        sorters: []
+    },
+    {
+        id: 'peopleFromSpain',
+        modelId: 'People',
+        type: 'grid',
+        name: `${model.plural} from Spain`,
+        rowHeight: 'small',
+        fields: model.fields.map((field, index) => ({
+            id: field.id,
+            visible: true,
+            width: index === 0 ? 320 : 220
+        })),
+        filters: [],
+        sorters: []
+    }
+]
+
 const fs = require('fs')
 const writeFile = (path, data) => new Promise((resolve, reject) => {
 
@@ -80,13 +132,21 @@ async function main() {
 
     let state = {
         Model: [],
-        ModelDatas: {}
+        ModelDatas: {},
+        View: [],
+        ViewDatas: {}
     }
 
     models.forEach(model => {
 
         state.Model.push(model.id)
         state.ModelDatas[model.id] = model
+    })
+
+    views.forEach(view => {
+
+        state.View.push(view.id)
+        state.ViewDatas[view.id] = view
     })
 
     await writeFile(__dirname + '/../../demo/src/assets/big-data/schema.json', JSON.stringify(state, null, 2))

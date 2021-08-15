@@ -19,6 +19,7 @@ import ViewSorterSettings from '../view-sort-settings'
 import FieldTooltip from '../field-tooltip'
 import HeaderCell from './HeaderCell'
 import ViewSwitcher from '../view-switcher'
+import spinner from '../spinner'
 
 const expand = props => (
     <svg {...props} viewBox="0 0 12 12">
@@ -313,8 +314,13 @@ const Table = (props, ref) => {
     const model = props.schema.ModelDatas[modelId]
     const fields = model.fields
 
-    const rows = props.data[modelId].map(id =>
-        props.data[modelId + 'Datas'][id]
+    const data = props.data ? props.data : ({
+        [modelId]: [],
+        [modelId + 'Datas']: {},
+    })
+
+    const rows = data[modelId].map(id =>
+        data[modelId + 'Datas'][id]
     )
 
     const [query, setQuery] = useState('')
@@ -325,7 +331,8 @@ const Table = (props, ref) => {
         search.addIndex(field.id)
     })
 
-    const initialView = fromJS({
+    const defaultView = fromJS({
+        id: 'default',
         type: 'grid',
         name: `Alle ${model.plural}`,
         rowHeight: 'small',
@@ -339,7 +346,35 @@ const Table = (props, ref) => {
         sorters: []
     })
 
-    const [view, setView] = useState(initialView)
+
+    let _views = fromJS([defaultView])
+
+    if (model.views) {
+        _views = model.views.map(viewId =>
+            props.schema.ViewDatas[viewId]
+        )
+        _views = fromJS(_views)
+    }
+
+    const [views, setViews] = useState(_views)
+
+    const setView = (view) => {
+
+        setViews(
+            views.map(v => {
+
+                if (v.get('id') === view.get('id')) {
+                    return view
+                }
+
+                return v
+            })
+        )
+    }
+
+    const viewId = props.viewId || 'default'
+
+    const view = views.find(view => view.get('id') === viewId)
 
     const viewRows = getRecordsForView()({ view, fields: fromJS(fields), records: rows })
 
@@ -356,8 +391,8 @@ const Table = (props, ref) => {
             const columnName = field.name ? field.name : field.id
 
             if (textFormatter) {
-                result[columnName] = textFormatter({ context: 'text', field, value, record, schema: props.schema, data: props.data })
-                // result[field.name] = textFormatter({ context: 'value', field, value, record, schema: props.schema, data: props.data })
+                result[columnName] = textFormatter({ context: 'text', field, value, record, schema: props.schema, data: data })
+                // result[field.name] = textFormatter({ context: 'value', field, value, record, schema: props.schema, data: data })
             } else {
                 result[columnName] = value
             }
@@ -377,7 +412,7 @@ const Table = (props, ref) => {
         const result = search.search(query)
 
         filteredRows = result.map(row =>
-            props.data[modelId + 'Datas'][row.id]
+            data[modelId + 'Datas'][row.id]
         )
     }
 
@@ -446,8 +481,9 @@ const Table = (props, ref) => {
                     `}
                 >
                     <ViewSwitcher
-                        views={fromJS([view])}
+                        views={views}
                         view={view}
+                        onViewClick={props.onViewChange}
                         onExportToJSON={handleExportToJSON}
                         onExportToCSV={handleExportToCSV}
                         onExportViewConfiguration={handleExportViewConfiguration}
@@ -531,6 +567,29 @@ const Table = (props, ref) => {
                     rows={tableRows}
                 />
             </div>
+            {props.loading ? (
+                <div
+                    className={css`
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    z-index: 11;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                `}
+                >
+                    <div className={css`display: flex; align-items: center; color: #787878; padding: 16px; background-color: #fff; border-radius: 12px;`}>
+                        {spinner({ height: 16 })}
+                        <div className={css`margin-left: 8px; font-weight: bold; font-size: 13px;`}>
+                            aan het laden...
+                        </div>
+                    </div>
+                </div>
+            ) : null}
         </div>
     )
 }

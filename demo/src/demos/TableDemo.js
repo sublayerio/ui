@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { css } from 'emotion'
 import example_schema from '../assets/field-types/schema.json'
 import example_data from '../assets/field-types/data.json'
@@ -128,6 +128,58 @@ const Example2 = () => {
 
 const Example3 = () => {
 
+    const [loading, setLoading] = useState(true)
+    const [data, setData] = useState(null)
+
+    const [viewId, setViewId] = useState('peopleFromHonduras')
+
+    const handleViewChange = ({ id }) => {
+        setViewId(id)
+    }
+
+    const getData = async (id) => {
+
+        await new Promise(resolve => setTimeout(resolve, 2000))
+
+        if (id === 'peopleFromHonduras') {
+            const People = big_data.People.filter(id => {
+                const person = big_data.PeopleDatas[id]
+                return person.country == 'Honduras'
+            })
+
+            return {
+                ...big_data,
+                People
+            }
+        }
+
+        if (id === 'peopleFromSpain') {
+            const People = big_data.People.filter(id => {
+                const person = big_data.PeopleDatas[id]
+                return person.country == 'Spain'
+            })
+
+            return {
+                ...big_data,
+                People
+            }
+        }
+
+        return big_data
+    }
+
+    const fetchView = async id => {
+        setLoading(true)
+        const _data = await getData(id)
+        setData(_data)
+        setLoading(false)
+    }
+
+    useEffect(() => {
+
+        fetchView(viewId)
+    }, [viewId])
+
     return (
         <div
             className={css`
@@ -164,8 +216,11 @@ const Example3 = () => {
             >
                 <Table
                     modelId={'People'}
+                    viewId={viewId}
+                    onViewChange={handleViewChange}
+                    loading={loading}
                     schema={big_schema}
-                    data={big_data}
+                    data={data}
                     hooks={example_hooks}
                     onPageRefresh={noop}
                 />

@@ -37,7 +37,7 @@ export default class ViewSwitcherDialog extends React.Component {
                 >
                     <SwitcherMenuHeader>
                         Views
-                                            </SwitcherMenuHeader>
+                    </SwitcherMenuHeader>
                     <SortableList
                         onSortEnd={this.handleSort}
                         pressDelay={200}
@@ -59,7 +59,7 @@ export default class ViewSwitcherDialog extends React.Component {
                                         icon={() => icons[view.get('type') + 'View']({ width: 16 })}
                                         name={view.get('name') ? view.get('name') : 'Untitled'}
                                         onClick={() => {
-                                            window.alert('choose view')
+                                            this.props.onViewClick({ id: view.get('id') })
                                             this.props.onClose()
                                         }}
                                     />
@@ -129,7 +129,7 @@ export default class ViewSwitcherDialog extends React.Component {
                                 <Button size={'sm'} icon={icons.galleryView}
                                     onClick={() => this.addView('gallery')}>
                                     Gallery
-                                                        </Button>
+                                </Button>
                             </div>
                             <Button
                                 size={'sm'}

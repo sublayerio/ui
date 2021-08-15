@@ -7,6 +7,11 @@
       "id": "People",
       "plural": "People",
       "primaryField": "name",
+      "views": [
+        "allPeople",
+        "peopleFromHonduras",
+        "peopleFromSpain"
+      ],
       "fields": [
         {
           "id": "image",
@@ -65,6 +70,256 @@
           "type": "id"
         }
       ]
+    }
+  },
+  "View": [
+    "allPeople",
+    "peopleFromHonduras",
+    "peopleFromSpain"
+  ],
+  "ViewDatas": {
+    "allPeople": {
+      "id": "allPeople",
+      "modelId": "People",
+      "type": "grid",
+      "name": "Alle People",
+      "rowHeight": "small",
+      "fields": [
+        {
+          "id": "image",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "title",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "name",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "email",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "phone",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "website",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "address",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "city",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "country",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "latitude",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "longitude",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "companyName",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "createdAt",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "id",
+          "visible": true,
+          "width": 220
+        }
+      ],
+      "filters": [],
+      "sorters": []
+    },
+    "peopleFromHonduras": {
+      "id": "peopleFromHonduras",
+      "modelId": "People",
+      "type": "grid",
+      "name": "People from Honduras",
+      "rowHeight": "small",
+      "fields": [
+        {
+          "id": "image",
+          "visible": true,
+          "width": 320
+        },
+        {
+          "id": "title",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "name",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "email",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "phone",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "website",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "address",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "city",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "country",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "latitude",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "longitude",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "companyName",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "createdAt",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "id",
+          "visible": true,
+          "width": 220
+        }
+      ],
+      "filters": [],
+      "sorters": []
+    },
+    "peopleFromSpain": {
+      "id": "peopleFromSpain",
+      "modelId": "People",
+      "type": "grid",
+      "name": "People from Spain",
+      "rowHeight": "small",
+      "fields": [
+        {
+          "id": "image",
+          "visible": true,
+          "width": 320
+        },
+        {
+          "id": "title",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "name",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "email",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "phone",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "website",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "address",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "city",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "country",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "latitude",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "longitude",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "companyName",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "createdAt",
+          "visible": true,
+          "width": 220
+        },
+        {
+          "id": "id",
+          "visible": true,
+          "width": 220
+        }
+      ],
+      "filters": [],
+      "sorters": []
     }
   }
 }
