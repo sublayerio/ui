@@ -388,7 +388,7 @@ const Table = (props, ref) => {
 
             const value = record[field.id]
 
-            const columnName = field.name ? field.name : field.id
+            const columnName = field.id
 
             if (textFormatter) {
                 result[columnName] = textFormatter({ context: 'text', field, value, record, schema: props.schema, data: data })
@@ -417,6 +417,8 @@ const Table = (props, ref) => {
     }
 
     const handleExportToCSV = () => {
+
+        console.log('handle export', readableRows)
 
         const csv_string = Papa.unparse(readableRows)
 

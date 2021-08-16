@@ -50,6 +50,10 @@ export const textFormatter = ({ context = 'value', field, value }) => {
     const sameTimeZone = get(field, 'settings.sameTimeZone', false)
     const includeTime = get(field, 'settings.includeTime', false)
 
+    if (!value) {
+        return null
+    }
+
     let format = value => moment(value).format('D MMMM YYYY')
 
     if (includeTime) {

@@ -1,248 +1,243 @@
 {
-    "Component": [
-        "HasOneExample"
-    ],
-    "ComponentDatas": {
-        "HasOneExample": {
-            "id": "HasOneExample",
-            "type": "HasOne",
-            "name": "HasOne example",
-            "foreignModel": "example2",
-            "localField": "relationship_hasOne"
-        }
-    },
-    "Model": [
-        "example",
-        "example2"
-    ],
-    "ModelDatas": {
-        "example2": {
-            "id": "example2",
-            "plural": "Examples 2",
-            "primaryField": "text",
-            "fields": [
-                {
-                    "id": "id",
-                    "type": "id"
-                },
-                {
-                    "id": "text",
-                    "type": "text"
-                }
-            ]
-        },
-        "example": {
-            "id": "example",
-            "plural": "Examples",
-            "fields": [
-                {
-                    "id": "id",
-                    "type": "id"
-                },
-                {
-                    "id": "button",
-                    "name": "Button",
-                    "type": "button",
-                    "readOnly": true,
-                    "settings": {
-                        "label": "Dangerous action",
-                        "variant": "danger"
-                    }
-                },
-                {
-                    "id": "relationship_hasOne",
-                    "name": "Relationship",
-                    "description": "Has one type relationship",
-                    "type": "relationship",
-                    "readOnly": true,
-                    "settings": {
-                        "type": "hasOne",
-                        "foreignModel": "example2"
-                    }
-                },
-                {
-                    "id": "relationship_hasMany",
-                    "type": "relationship",
-                    "readOnly": true,
-                    "settings": {
-                        "type": "hasMany",
-                        "foreignModel": "example2"
-                    }
-                },
-                {
-                    "id": "singleSelect_expanded",
-                    "type": "singleSelect",
-                    "readOnly": true,
-                    "settings": {
-                        "expanded": true,
-                        "options": [
-                            {
-                                "id": "completed",
-                                "name": "Voltooid",
-                                "backgroundColor": "rgb(0, 200, 117)",
-                                "color": "#fff"
-                            },
-                            {
-                                "id": "in_progress",
-                                "name": "Mee bezig",
-                                "backgroundColor": "rgb(253, 171, 61)",
-                                "color": "#fff"
-                            },
-                            {
-                                "id": "stuck",
-                                "name": "Lukt niet",
-                                "backgroundColor": "rgb(226, 68, 92)",
-                                "color": "#fff"
-                            },
-                            {
-                                "id": "planned",
-                                "name": "Ingepland",
-                                "backgroundColor": "rgb(196, 196, 196)",
-                                "color": "#fff"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": "date",
-                    "type": "date",
-                    "readOnly": false,
-                    "settings": {
-                        "includeTime": false
-                    }
-                },
-                {
-                    "id": "date_includeTime",
-                    "type": "date",
-                    "readOnly": true,
-                    "settings": {
-                        "includeTime": true
-                    }
-                },
-                {
-                    "id": "date_custom",
-                    "type": "date",
-                    "readOnly": true,
-                    "settings": {
-                        "includeTime": false
-                    }
-                },
-                {
-                    "id": "json",
-                    "type": "json",
-                    "readOnly": true,
-                    "settings": {
-                        "collapsed": false
-                    }
-                },
-                {
-                    "id": "text",
-                    "type": "text",
-                    "readOnly": false
-                },
-                {
-                    "id": "text_url",
-                    "type": "text",
-                    "displayType": "url"
-                },
-                {
-                    "id": "text_email",
-                    "type": "text",
-                    "displayType": "email"
-                },
-                {
-                    "id": "text_phone",
-                    "type": "text",
-                    "displayType": "phone"
-                },
-                {
-                    "id": "longText",
-                    "type": "longText",
-                    "readOnly": false
-                },
-                {
-                    "id": "longText_html",
-                    "type": "longText",
-                    "displayType": "html"
-                },
-                {
-                    "id": "longText_markdown",
-                    "type": "longText",
-                    "displayType": "markdown"
-                },
-                {
-                    "id": "longText_code",
-                    "type": "longText",
-                    "displayType": "code"
-                },
-                {
-                    "id": "boolean_checkbox",
-                    "type": "boolean",
-                    "readOnly": true,
-                    "settings": {
-                        "trueLabel": "On",
-                        "falseLabel": "Off"
-                    }
-                },
-                {
-                    "id": "boolean_toggle",
-                    "type": "boolean",
-                    "readOnly": true,
-                    "settings": {
-                        "ui": "toggle"
-                    }
-                },
-                {
-                    "id": "number_float",
-                    "type": "number",
-                    "readOnly": false,
-                    "settings": {
-                        "format": "float"
-                    }
-                },
-                {
-                    "id": "number_integer",
-                    "type": "number",
-                    "readOnly": true,
-                    "settings": {
-                        "format": "integer"
-                    }
-                },
-                {
-                    "id": "number_decimal",
-                    "type": "number",
-                    "readOnly": true,
-                    "settings": {
-                        "format": "decimal",
-                        "precision": 2
-                    }
-                },
-                {
-                    "id": "number_currency",
-                    "type": "number",
-                    "readOnly": true,
-                    "settings": {
-                        "format": "decimal",
-                        "precision": 2,
-                        "ui": "currency"
-                    }
-                },
-                {
-                    "id": "number_percentage",
-                    "type": "number",
-                    "readOnly": true,
-                    "settings": {
-                        "format": "decimal",
-                        "precision": 2,
-                        "ui": "percentage"
-                    }
-                },
-                {
-                    "id": "number_progressbar",
-                    "type": "number",
-                    "displayType": "progressBar"
-                }
-            ]
-        }
+  "Component": ["HasOneExample"],
+  "ComponentDatas": {
+    "HasOneExample": {
+      "id": "HasOneExample",
+      "type": "HasOne",
+      "name": "HasOne example",
+      "foreignModel": "example2",
+      "localField": "relationship_hasOne"
     }
+  },
+  "Model": ["example", "example2"],
+  "ModelDatas": {
+    "example2": {
+      "id": "example2",
+      "plural": "Examples 2",
+      "primaryField": "text",
+      "fields": [
+        {
+          "id": "id",
+          "type": "id"
+        },
+        {
+          "id": "text",
+          "type": "text"
+        }
+      ]
+    },
+    "example": {
+      "id": "example",
+      "plural": "Examples",
+      "fields": [
+        {
+          "id": "id",
+          "type": "id"
+        },
+        {
+          "id": "button",
+          "name": "Button",
+          "type": "button",
+          "readOnly": true,
+          "settings": {
+            "label": "Dangerous action",
+            "variant": "danger"
+          }
+        },
+        {
+          "id": "relationship_hasOne",
+          "name": "Relationship",
+          "description": "Has one type relationship",
+          "type": "relationship",
+          "readOnly": true,
+          "settings": {
+            "type": "hasOne",
+            "foreignModel": "example2"
+          }
+        },
+        {
+          "id": "relationship_hasMany",
+          "type": "relationship",
+          "readOnly": true,
+          "settings": {
+            "type": "hasMany",
+            "foreignModel": "example2"
+          }
+        },
+        {
+          "id": "singleSelect_expanded",
+          "type": "singleSelect",
+          "readOnly": true,
+          "settings": {
+            "expanded": true,
+            "options": [
+              {
+                "id": "completed",
+                "name": "Voltooid",
+                "backgroundColor": "rgb(0, 200, 117)",
+                "color": "#fff"
+              },
+              {
+                "id": "in_progress",
+                "name": "Mee bezig",
+                "backgroundColor": "rgb(253, 171, 61)",
+                "color": "#fff"
+              },
+              {
+                "id": "stuck",
+                "name": "Lukt niet",
+                "backgroundColor": "rgb(226, 68, 92)",
+                "color": "#fff"
+              },
+              {
+                "id": "planned",
+                "name": "Ingepland",
+                "backgroundColor": "rgb(196, 196, 196)",
+                "color": "#fff"
+              }
+            ]
+          }
+        },
+        {
+          "id": "date",
+          "type": "date",
+          "readOnly": false,
+          "settings": {
+            "includeTime": false
+          }
+        },
+        {
+          "id": "date_includeTime",
+          "type": "date",
+          "readOnly": true,
+          "settings": {
+            "includeTime": true
+          }
+        },
+        {
+          "id": "date_custom",
+          "type": "date",
+          "readOnly": true,
+          "settings": {
+            "includeTime": false
+          }
+        },
+        {
+          "id": "json",
+          "type": "json",
+          "readOnly": true,
+          "settings": {
+            "collapsed": false
+          }
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "readOnly": false
+        },
+        {
+          "id": "text_url",
+          "type": "text",
+          "displayType": "url"
+        },
+        {
+          "id": "text_email",
+          "type": "text",
+          "displayType": "email"
+        },
+        {
+          "id": "text_phone",
+          "type": "text",
+          "displayType": "phone"
+        },
+        {
+          "id": "longText",
+          "type": "longText",
+          "readOnly": false
+        },
+        {
+          "id": "longText_html",
+          "type": "longText",
+          "displayType": "html"
+        },
+        {
+          "id": "longText_markdown",
+          "type": "longText",
+          "displayType": "markdown"
+        },
+        {
+          "id": "longText_code",
+          "type": "longText",
+          "displayType": "code"
+        },
+        {
+          "id": "boolean_checkbox",
+          "type": "boolean",
+          "readOnly": true,
+          "settings": {
+            "trueLabel": "On",
+            "falseLabel": "Off"
+          }
+        },
+        {
+          "id": "boolean_toggle",
+          "type": "boolean",
+          "readOnly": true,
+          "settings": {
+            "ui": "toggle"
+          }
+        },
+        {
+          "id": "number_float",
+          "type": "number",
+          "readOnly": false,
+          "settings": {
+            "format": "float"
+          }
+        },
+        {
+          "id": "number_integer",
+          "type": "number",
+          "readOnly": true,
+          "settings": {
+            "format": "integer"
+          }
+        },
+        {
+          "id": "number_decimal",
+          "type": "number",
+          "readOnly": true,
+          "settings": {
+            "format": "decimal",
+            "precision": 2
+          }
+        },
+        {
+          "id": "number_currency",
+          "type": "number",
+          "readOnly": true,
+          "settings": {
+            "format": "decimal",
+            "precision": 2,
+            "ui": "currency"
+          }
+        },
+        {
+          "id": "number_percentage",
+          "type": "number",
+          "readOnly": true,
+          "settings": {
+            "format": "decimal",
+            "precision": 2,
+            "ui": "percentage"
+          }
+        },
+        {
+          "id": "number_progressbar",
+          "type": "number",
+          "displayType": "progressBar"
+        }
+      ]
+    }
+  }
 }

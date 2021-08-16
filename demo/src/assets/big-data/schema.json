@@ -1,17 +1,11 @@
 {
-  "Model": [
-    "People"
-  ],
+  "Model": ["People"],
   "ModelDatas": {
     "People": {
       "id": "People",
       "plural": "People",
       "primaryField": "name",
-      "views": [
-        "allPeople",
-        "peopleFromHonduras",
-        "peopleFromSpain"
-      ],
+      "views": ["allPeople", "peopleFromHonduras", "peopleFromSpain"],
       "fields": [
         {
           "id": "image",
@@ -72,11 +66,7 @@
       ]
     }
   },
-  "View": [
-    "allPeople",
-    "peopleFromHonduras",
-    "peopleFromSpain"
-  ],
+  "View": ["allPeople", "peopleFromHonduras", "peopleFromSpain"],
   "ViewDatas": {
     "allPeople": {
       "id": "allPeople",

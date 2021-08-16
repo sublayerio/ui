@@ -10,8 +10,6 @@ export default class RecordHoverCard extends React.Component {
         const model = this.props.schema['ModelDatas'][modelId]
         const recordHoverCard = this.props.schema.RecordHoverCardDatas ? this.props.schema['RecordHoverCardDatas'][modelId] : null
 
-        console.log(recordHoverCard, modelId)
-
         const filterFields = recordHoverCard ? recordHoverCard.fields : null
 
         const { primaryField } = model
