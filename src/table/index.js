@@ -349,7 +349,7 @@ const Table = (props, ref) => {
 
     let _views = fromJS([defaultView])
 
-    if (model.views) {
+    if (model.views && props.viewId) {
         _views = model.views.map(viewId =>
             props.schema.ViewDatas[viewId]
         )
