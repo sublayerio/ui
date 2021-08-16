@@ -414,6 +414,11 @@ const Table = (props, ref) => {
         filteredRows = result.map(row =>
             data[modelId + 'Datas'][row.id]
         )
+
+        console.log('query', query)
+        console.log('result', result)
+        console.log('readableRows', readableRows)
+        console.log('filteredRows', filteredRows)
     }
 
     const handleExportToCSV = () => {
