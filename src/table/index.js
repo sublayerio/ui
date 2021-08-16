@@ -415,15 +415,15 @@ const Table = (props, ref) => {
             data[modelId + 'Datas'][row.id]
         )
 
-        console.log('query', query)
-        console.log('result', result)
-        console.log('readableRows', readableRows)
-        console.log('filteredRows', filteredRows)
+        // console.log('query', query)
+        // console.log('result', result)
+        // console.log('readableRows', readableRows)
+        // console.log('filteredRows', filteredRows)
     }
 
     const handleExportToCSV = () => {
 
-        console.log('handle export', readableRows)
+        // console.log('handle export', readableRows)
 
         const csv_string = Papa.unparse(readableRows)
 
